@@ -1,0 +1,299 @@
+/* ==========================================================================
+   WHY NEXORÉ — immersive explainer
+   Every selector below is scoped under #why (and @keyframes are prefixed
+   why-), so nothing here can touch the rest of the portfolio.
+   Palette: the portfolio's own ink / blue tokens for the interface; the
+   sample shop ("Ember & Co.") has its own warm brand colours, on purpose —
+   it shows what "brand-specific" looks like next to Nexoré's blue.
+   ========================================================================== */
+
+#why{
+  --w-amber:#e8a35a; --w-amber-ink:#1a120b; --w-flame:#f6c27a;
+  --w-cream:#f6efe6; --w-cream-2:#d9c9b6;
+  --w-brand:#15110f; --w-card:#2b221b; --w-card-hi:#3b2d22; --w-card-lo:#1d1713;
+  --w-paper:#eef0f3; --w-grey:#cfd4dc; --w-grey-2:#aab2c0; --w-grey-ink:#5d6573; --w-link:#1a4fd6; --w-bad:#ff8a80;
+  position:fixed;inset:0;z-index:70;
+  display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr) auto;
+  background:var(--ink-0);color:var(--text);font-family:var(--font-text);
+  overflow:hidden;overscroll-behavior:contain;
+  -webkit-user-select:none;user-select:none;
+}
+#why[hidden]{display:none}
+#why *,#why *::before,#why *::after{box-sizing:border-box}
+#why button{font:inherit;color:inherit}
+#why ::selection{background:rgba(47,107,240,.55);color:#fff}
+
+/* ---------- top bar ---------- */
+#why .why-bar{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;min-height:64px;
+  padding:max(10px,env(safe-area-inset-top)) max(var(--pad),env(safe-area-inset-right)) 6px max(var(--pad),env(safe-area-inset-left));
+}
+#why .why-brand{justify-self:start}
+#why .why-act{justify-self:center;font:700 .9375rem/1 var(--font-display);color:var(--blue-hi);letter-spacing:.01em;text-align:center;transition:opacity .25s}
+#why .why-x{justify-self:end}
+
+#why .why-btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.55em;height:44px;padding:0 20px;border:0;border-radius:var(--r-pill);
+  background:var(--ink-2);color:var(--text);font:700 .9375rem/1 var(--font-text);letter-spacing:.01em;text-decoration:none;white-space:nowrap;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;transition:background .25s,transform .3s var(--ease-out),opacity .25s,filter .25s;
+}
+#why .why-btn:hover{filter:brightness(1.18);transform:translateY(-1px)}
+#why .why-btn:active{transform:scale(.97)}
+#why .why-btn--p{background:var(--blue);color:#fff}
+#why .why-btn[disabled],#why .why-btn[aria-disabled="true"]{opacity:.35;pointer-events:none}
+#why .why-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#why .why-btn--ic{width:44px;padding:0}
+#why :focus-visible{outline:2px solid var(--blue-hi);outline-offset:3px}
+
+/* ---------- main stage ---------- */
+#why .why-main{
+  position:relative;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y;
+  padding:8px max(var(--pad),env(safe-area-inset-right)) 18px max(var(--pad),env(safe-area-inset-left));
+  display:grid;grid-template-columns:minmax(0,1fr);align-content:start;row-gap:18px;
+  transition:opacity .45s var(--ease-out),transform .45s var(--ease-out);
+  scrollbar-width:none;
+}
+#why .why-main::-webkit-scrollbar{display:none}
+#why .why-main.is-out{opacity:0;transform:translate3d(calc(var(--dir,1) * -3vw),0,0);transition-duration:.22s;transition-timing-function:ease-in}
+#why .why-main.is-pre{opacity:0;transform:translate3d(calc(var(--dir,1) * 3vw),0,0);transition:none}
+#why .why-main[data-kind="scene"] .why-view{order:-1}
+
+/* copy: four variants share one grid cell, so the height never jumps */
+#why .why-copy{display:grid;align-content:start;min-width:0}
+#why .why-copy[data-show="board"] .cp:not(.cp--board),
+#why .why-copy[data-show="finale"] .cp:not(.cp--finale),
+#why .why-copy[data-show="problem"] :is(.cp--board,.cp--finale),
+#why .why-copy[data-show="fix"] :is(.cp--board,.cp--finale){display:none}
+#why .cp{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s ease,transform .5s var(--ease-out),visibility 0s .3s}
+#why .why-copy[data-show="board"] .cp--board,
+#why .why-copy[data-show="problem"] .cp--problem,
+#why .why-copy[data-show="fix"] .cp--fix,
+#why .why-copy[data-show="finale"] .cp--finale{opacity:1;visibility:visible;transform:none;transition:opacity .45s ease .12s,transform .6s var(--ease-out) .12s,visibility 0s}
+#why .why-h{font:700 clamp(1.75rem,7.4vw,3rem)/1.04 var(--font-display);letter-spacing:-.025em;text-wrap:balance;color:var(--text)}
+#why .why-p{margin-top:14px;max-width:44ch;font-size:clamp(1rem,2.4vw,1.1875rem);line-height:1.5;color:var(--text);text-wrap:pretty;-webkit-user-select:text;user-select:text}
+#why .why-hint{margin-top:14px;font-size:.9375rem;line-height:1.4;color:var(--text-2)}
+#why .why-fine{margin-top:12px;max-width:46ch;font-size:.875rem;line-height:1.45;color:var(--text-2)}
+#why .why-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+/* ---------- sample-shop stage + scrubber ---------- */
+#why .why-view{min-width:0}
+#why .why-focus{width:min(100%,var(--stage-w,100%));margin-inline:auto}
+#why .why-stage{width:100%}
+#why .why-ctl{display:flex;align-items:center;gap:12px;margin-top:14px}
+#why .why-ctl__end{flex:none;font-size:.8125rem;line-height:1;color:var(--text-2)}
+#why .why-range{flex:1;min-width:0;-webkit-appearance:none;appearance:none;height:44px;margin:0;background:transparent;cursor:ew-resize;touch-action:pan-y;--p:0%}
+#why .why-range::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--blue) var(--p),var(--ink-2) var(--p))}
+#why .why-range::-moz-range-track{height:8px;border-radius:99px;background:var(--ink-2)}
+#why .why-range::-moz-range-progress{height:8px;border-radius:99px;background:var(--blue)}
+#why .why-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;margin-top:-11px;border-radius:50%;border:0;background:var(--text);box-shadow:0 3px 10px rgba(0,0,0,.5);transition:transform .2s var(--ease-out)}
+#why .why-range::-moz-range-thumb{width:30px;height:30px;border-radius:50%;border:0;background:var(--text);box-shadow:0 3px 10px rgba(0,0,0,.5)}
+#why .why-range:active::-webkit-slider-thumb{transform:scale(1.12)}
+#why .why-note{margin-top:4px;font-size:.8125rem;line-height:1.4;color:var(--text-2)}
+
+/* ---------- the board of six (problems, and later the finale) ---------- */
+#why .why-board{
+  --cols:2;--gap:clamp(12px,2.6vw,24px);
+  display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:var(--gap);width:100%;margin-inline:auto;
+}
+#why .why-main[data-kind="scene"] .why-board,
+#why .why-main[data-kind="board"] .why-focus,
+#why .why-main[data-kind="finale"] .why-focus{display:none}
+#why .why-tile{display:block;min-width:0;cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:var(--r-md)}
+#why .why-tile .sc{transition:transform .4s var(--ease-out)}
+#why .why-tile:hover .sc{transform:translateY(-3px) scale(1.015)}
+#why .why-tile:active .sc{transform:scale(.985)}
+#why .why-tile__lab{position:relative;display:grid;margin-top:10px;font:700 .9375rem/1.22 var(--font-display);color:var(--text);letter-spacing:-.005em;min-height:2.45em}
+#why .why-tile__lab span{grid-area:1/1;transition:opacity .4s ease}
+#why .why-tile__lab .l-f{opacity:0}
+#why .why-board[data-mode="fixed"] .l-p{opacity:0}
+#why .why-board[data-mode="fixed"] .l-f{opacity:1}
+#why.is-in .why-tile{animation:why-rise .8s var(--ease-out) both;animation-delay:calc(var(--k) * 70ms + 320ms)}
+@keyframes why-rise{from{opacity:0;translate:0 26px}to{opacity:1;translate:0 0}}
+
+/* ---------- footer: steps ---------- */
+#why .why-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px max(var(--pad),env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(var(--pad),env(safe-area-inset-left));
+}
+#why .why-foot .why-btn{min-width:44px}
+#why .why-prev[disabled]{visibility:hidden}
+#why .why-dots{display:flex;align-items:center}
+#why .why-dot{position:relative;width:20px;height:44px;border:0;padding:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#why .why-dot::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:99px;background:var(--ink-2);transition:width .35s var(--ease-out),margin .35s var(--ease-out),background .25s}
+#why .why-dot:hover::before{background:var(--blue-hi)}
+#why .why-dot[aria-current="step"]::before{width:22px;margin-left:-11px;background:var(--blue)}
+#why .why-dot[data-g]{margin-left:10px}
+#why .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- layout: wide / landscape screens ---------- */
+@media (min-aspect-ratio:6/5) and (min-width:640px){
+  #why .why-main{
+    --colgap:clamp(28px,5vw,88px);
+    grid-template-columns:minmax(260px,5fr) minmax(0,7fr);grid-template-rows:minmax(min-content,1fr);column-gap:var(--colgap);align-content:normal;align-items:center;row-gap:0;
+  }
+  #why .why-main[data-kind="scene"] .why-view{order:0}
+  #why .why-main .why-copy{grid-column:1}
+  #why .why-main .why-view{grid-column:2}
+  #why .why-h{font-size:clamp(1.5rem,min(3.5vw,7.5dvh),3.1rem)}
+  #why .why-board{--cols:3;max-width:max(420px,calc(200dvh - 560px))}
+  #why .why-focus{--stage-w:max(230px,calc((100dvh - 64px - 72px - 120px) * 4 / 3))}
+}
+@media (min-width:600px) and (max-aspect-ratio:6/5){
+  #why .why-board{--cols:3}
+  #why .why-focus{--stage-w:min(100%,640px)}
+}
+@media (max-width:480px){
+  #why .why-prev{width:44px;padding:0}#why .why-prev span{display:none}
+  #why .why-dot{width:15px}#why .why-dot[data-g]{margin-left:7px}
+  #why .why-foot{gap:6px}
+}
+@media (max-width:359px){#why .why-btn{padding:0 14px}}
+
+/* ==========================================================================
+   Sample-shop scenes. Everything is sized in --u (1% of the scene's width,
+   set from JS), so a scene looks identical as a thumbnail and full size.
+   --t (0 = problem, 1 = fixed) drives every transformation.
+   ========================================================================== */
+#why .sc{
+  --u:3px;--t:0;position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:calc(var(--u) * 3);
+  background:var(--ink-1);contain:layout paint;font-family:var(--font-text);color:var(--w-cream);line-height:1.15;
+}
+#why .sc .a{position:absolute;inset:0}
+#why .sc .p{position:absolute;left:calc(var(--u) * var(--l,0));top:calc(var(--u) * var(--tp,0));width:calc(var(--u) * var(--w,10));height:calc(var(--u) * var(--h,10))}
+#why .sc .pt{position:absolute;left:calc(var(--u) * var(--l,0));top:calc(var(--u) * var(--tp,0));white-space:nowrap}
+#why .sc .fs{font-size:calc(var(--u) * var(--fs,2))}
+#why .sc .b{font-weight:700}
+#why .sc .d{font-family:var(--font-display);font-weight:700;letter-spacing:-.02em}
+#why .sc .dim{color:var(--w-cream-2)}
+#why .sc .serif{font-family:"Times New Roman",Times,serif}
+
+/* one interpolation rule for everything that moves: start (…0) → end (…1), per-element delay --d */
+#why .sc .mv{
+  --te:clamp(0, calc((var(--t) - var(--d,0)) / (1 - var(--d,0))), 1);
+  transform:translate3d(calc(var(--u) * (var(--x0,0) * (1 - var(--te)) + var(--x1,0) * var(--te))),calc(var(--u) * (var(--y0,0) * (1 - var(--te)) + var(--y1,0) * var(--te))),0)
+            rotate(calc(1deg * (var(--r0,0) * (1 - var(--te)) + var(--r1,0) * var(--te))))
+            scale(calc(var(--s0,1) * (1 - var(--te)) + var(--s1,1) * var(--te)));
+  opacity:calc(var(--o0,1) * (1 - var(--te)) + var(--o1,1) * var(--te));
+}
+
+/* browser window */
+#why .sc .win{position:absolute;left:calc(var(--u) * 5);right:calc(var(--u) * 5);top:calc(var(--u) * 5);bottom:calc(var(--u) * 5);border-radius:calc(var(--u) * 2);overflow:hidden;background:#101c38}
+#why .sc .bar{position:absolute;left:0;right:0;top:0;height:calc(var(--u) * 5);background:#101c38;display:flex;align-items:center;gap:calc(var(--u) * .9);padding-left:calc(var(--u) * 2)}
+#why .sc .bar i{display:block;width:calc(var(--u) * 1.2);height:calc(var(--u) * 1.2);border-radius:50%;background:#3a4a74}
+#why .sc .url{margin-left:calc(var(--u) * 2);padding:calc(var(--u) * .55) calc(var(--u) * 2.2);border-radius:99px;background:#1a2748;color:var(--text-2);white-space:nowrap}
+#why .sc .pg{position:absolute;left:0;right:0;top:calc(var(--u) * 5);bottom:0;overflow:hidden;background:var(--w-paper)}
+#why .sc .pg.dk{background:var(--w-brand)}
+#why .sc .bgn{background:var(--w-brand)}
+
+/* the candle (drawn, not an image) */
+#why .sc .jar{position:relative;width:100%;height:100%}
+#why .sc .jar i{position:absolute;display:block}
+#why .sc .jb{left:6%;right:6%;top:22%;bottom:0;background:var(--jc,#8a5a3a);border-radius:10% 10% 16% 16%}
+#why .sc .jb::after{content:"";position:absolute;left:18%;right:18%;top:20%;height:44%;background:rgba(255,255,255,.14);border-radius:6%}
+#why .sc .jl{left:9%;right:9%;top:18%;height:6%;background:var(--jl,#c9a57a);border-radius:30%}
+#why .sc .jk{left:49.2%;width:1.6%;top:13%;height:6%;background:#2a1f18}
+#why .sc .jf{left:45%;width:10%;top:1%;height:14%;background:var(--w-flame);border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;transform-origin:50% 100%}
+#why .sc .fl{animation:why-flick 2.6s ease-in-out infinite}
+@keyframes why-flick{0%,100%{scale:1 1;rotate:0deg}30%{scale:.9 1.1;rotate:-3deg}62%{scale:1.06 .94;rotate:3deg}}
+
+/* generic bits */
+#why .sc .greyb{background:var(--w-grey);border-radius:calc(var(--u) * .4)}
+#why .sc .lnk{color:var(--w-link);text-decoration:underline;margin-right:1.3em}
+#why .sc .btn-a{display:grid;place-items:center;background:var(--w-amber);color:var(--w-amber-ink);font-weight:700;border-radius:99px;white-space:nowrap}
+#why .sc .chips{display:flex;gap:calc(var(--u) * 1.2)}
+#why .sc .chip{padding:calc(var(--u) * .7) calc(var(--u) * 1.8);border-radius:99px;background:var(--w-card);color:var(--w-cream-2);font-size:calc(var(--u) * 2.1);white-space:nowrap}
+#why .sc .chip.on{background:var(--w-amber);color:var(--w-amber-ink);font-weight:700}
+
+/* looping "consequence" animations — stop the moment a fix begins (data-fix) */
+#why .sc .cur{position:absolute;left:0;top:0;width:calc(var(--u) * 3);height:calc(var(--u) * 4.2);z-index:6;pointer-events:none;opacity:0;animation:why-cur 5.6s ease-in-out infinite}
+#why .sc .cur svg{display:block;width:100%;height:100%;fill:#fff;stroke:#0a1428;stroke-width:1.2;stroke-linejoin:round;overflow:visible}
+@keyframes why-cur{
+  0%{opacity:0;translate:calc(var(--u) * var(--ax,0)) calc(var(--u) * var(--ay,0))}
+  12%{opacity:1}
+  40%{translate:calc(var(--u) * var(--bx,0)) calc(var(--u) * var(--by,0))}
+  68%{translate:calc(var(--u) * var(--cx,0)) calc(var(--u) * var(--cy,0))}
+  88%{opacity:1}
+  100%{opacity:0;translate:calc(var(--u) * var(--dx,0)) calc(var(--u) * var(--dy,0))}
+}
+#why .sc[data-fix] .loop{animation:none}
+#why.is-paused .sc *{animation-play-state:paused}
+
+/* scene 1 — presence */
+#why .s1 .glow{background:radial-gradient(closest-side,rgba(232,163,90,.42),rgba(232,163,90,0))}
+#why .s1 .jarx{filter:grayscale(calc(1 - var(--te)))}
+
+/* scene 2 — discovery */
+#why .s2 .card{background:var(--w-card);border-radius:calc(var(--u) * 1.4)}
+#why .s2 .card.hi{background:var(--w-card-hi)}
+
+/* scene 3 — product questions */
+#why .s3 .bub{background:var(--w-card);border-radius:calc(var(--u) * 2.4);clip-path:inset(0 calc(var(--cr,0) * 1% * (1 - var(--te))) 0 0 round calc(var(--u) * 2.4));animation:why-ping 5.4s ease-in-out infinite;animation-delay:calc(var(--i) * .55s)}
+#why .s3 .bub::before{content:"";position:absolute;inset:0;background:#2f55c7;opacity:calc(1 - var(--te))}
+#why .s3 .bub .q{position:absolute;left:calc(var(--u) * 3);top:50%;translate:0 -50%;color:#fff;opacity:calc(1 - var(--te) * 2.2);white-space:nowrap}
+#why .s3 .bub .al,#why .s3 .bub .av{position:absolute;top:50%;translate:0 -50%;opacity:calc(var(--te) * 2 - 1);white-space:nowrap}
+#why .s3 .bub .al{left:calc(var(--u) * 3);color:var(--w-cream-2)}
+#why .s3 .bub .av{right:calc(var(--u) * 3);font-weight:700;color:var(--w-cream)}
+#why .s3 .bub .btn-a{position:absolute;right:calc(var(--u) * 1.6);top:50%;translate:0 -50%;padding:calc(var(--u) * .9) calc(var(--u) * 2.2);font-size:calc(var(--u) * 2.2);opacity:calc(var(--te) * 2 - 1)}
+@keyframes why-ping{0%,16%,100%{scale:1}7%{scale:1.07}}
+#why .s3 .badge{display:block;width:calc(var(--u) * 3.2);height:calc(var(--u) * 3.2);border-radius:50%;background:var(--w-amber);color:var(--w-amber-ink);overflow:hidden;font-weight:700}
+#why .s3 .strip{display:block;animation:why-strip 9s steps(9,end) infinite}
+#why .s3 .strip i{display:block;height:calc(var(--u) * 3.2);line-height:calc(var(--u) * 3.2);text-align:center;font-style:normal;font-size:calc(var(--u) * 1.9)}
+@keyframes why-strip{to{translate:0 calc(var(--u) * -28.8)}}
+
+/* scene 4 — enquiry */
+#why .s4 .panel{background:var(--w-card-lo);border-radius:calc(var(--u) * 2)}
+#why .s4 .fld{position:absolute;top:calc(var(--u) * var(--tp,0));left:calc(var(--u) * 22);width:calc(var(--u) * 46);background:var(--w-card);border-radius:calc(var(--u) * 1);height:calc(var(--u) * (var(--h0,4.4) * (1 - var(--te)) + var(--h1,4.4) * var(--te)))}
+#why .s4 .fld span{position:absolute;left:calc(var(--u) * 1.8);top:50%;translate:0 -50%;color:var(--w-cream-2);white-space:nowrap}
+#why .s4 .fld em{position:absolute;right:calc(var(--u) * 1.6);top:50%;translate:0 -50%;font-style:normal;color:var(--w-bad);font-size:calc(var(--u) * 1.6);opacity:calc(1 - var(--te) * 3)}
+#why .s4 .go{left:calc(var(--u) * 22);width:calc(var(--u) * 46);height:calc(var(--u) * 8);border-radius:calc(var(--u) * 4)}
+#why .s4 .go span{grid-area:1/1}
+
+/* scene 5 — mobile */
+#why .s5 .phone{background:var(--ink-2);border-radius:calc(var(--u) * 5)}
+#why .s5 .scr{position:absolute;inset:calc(var(--u) * 1.4);border-radius:calc(var(--u) * 3.8);overflow:hidden;background:var(--w-paper)}
+#why .s5 .wob{position:absolute;left:0;top:0;width:calc(var(--u) * 96);height:100%;animation:why-wob 6s ease-in-out infinite}
+@keyframes why-wob{0%,18%,100%{translate:0 0}55%,70%{translate:calc(var(--u) * -24) 0}}
+#why .s5 .sbar{background:var(--w-grey-2);border-radius:99px;animation:why-sb 6s ease-in-out infinite}
+@keyframes why-sb{0%,18%,100%{translate:0 0}55%,70%{translate:calc(var(--u) * 21) 0}}
+#why .s5 .tiny{display:grid;place-items:center;background:var(--w-link);color:#fff;border-radius:calc(var(--u) * .6);font-size:calc(var(--u) * 1.4)}
+#why .s5 .pinch i{position:absolute;display:block;width:calc(var(--u) * 2.4);height:calc(var(--u) * 2.4);border-radius:50%;background:var(--blue-hi);opacity:.85}
+#why .s5 .pinch i:nth-child(1){left:0;top:0;animation:why-pa 2.6s ease-in-out infinite}
+#why .s5 .pinch i:nth-child(2){left:calc(var(--u) * 7.6);top:calc(var(--u) * 7.6);animation:why-pb 2.6s ease-in-out infinite}
+@keyframes why-pa{0%,100%{translate:calc(var(--u) * 3.6) calc(var(--u) * 3.6)}50%{translate:0 0}}
+@keyframes why-pb{0%,100%{translate:calc(var(--u) * -3.6) calc(var(--u) * -3.6)}50%{translate:0 0}}
+
+/* scene 6 — search + custom feature */
+#why .s6 .res{background:#f4f1ec;border-radius:calc(var(--u) * 1.6);color:#1c1c1c}
+#why .s6 .row{display:flex;align-items:center;gap:calc(var(--u) * 1.6);padding:0 calc(var(--u) * 1.6);background:var(--w-card);border-radius:calc(var(--u) * 1.1);height:calc(var(--u) * 5.4);font-size:calc(var(--u) * 2.1);white-space:nowrap}
+#why .s6 .row b{display:grid;place-items:center;min-width:calc(var(--u) * 3.6);height:calc(var(--u) * 3);border-radius:calc(var(--u) * .8);background:var(--w-amber);color:var(--w-amber-ink);font-size:calc(var(--u) * 1.7)}
+#why .s6 .tool{background:var(--w-card);border-radius:calc(var(--u) * 2)}
+#why .s6 .tool .chip{font-size:calc(var(--u) * 1.7);padding:calc(var(--u) * .6) calc(var(--u) * 1.5)}
+#why .s6 .field{display:flex;align-items:center;padding:0 calc(var(--u) * 1.8);background:var(--w-card-lo);border-radius:calc(var(--u) * 1.2);color:var(--w-cream-2)}
+
+/* ---------- reduced motion: keep every state change, drop the travel + loops ---------- */
+html.rm #why .sc .loop,html.rm #why .sc .fl,html.rm #why .s3 .bub{animation:none}
+html.rm #why .why-main.is-out,html.rm #why .why-main.is-pre{transform:none}
+html.rm #why .why-main{transition:opacity .2s ease}
+html.rm #why .cp{transform:none}
+html.rm #why.is-in .why-tile{animation:none}
+html.rm #why .why-tile:hover .sc{transform:none}
+@media (prefers-reduced-motion:reduce){
+  #why .sc .loop,#why .sc .fl,#why .s3 .bub{animation:none}
+  #why .why-main.is-out,#why .why-main.is-pre{transform:none}
+  #why .why-main{transition:opacity .2s ease}
+  #why .cp{transform:none}
+  #why.is-in .why-tile{animation:none}
+  #why .why-tile:hover .sc{transform:none}
+}
+
+/* short landscape screens (phones on their side): trim the chrome */
+@media (max-height:480px){
+  #why .why-bar{min-height:50px;padding-bottom:0}
+  #why .why-foot{padding-top:2px;padding-bottom:max(6px,env(safe-area-inset-bottom))}
+  #why .why-btn,#why .why-dot{height:40px}
+  #why .why-note{display:none}
+  #why .why-p{margin-top:8px}
+  #why .why-main{padding-top:2px;padding-bottom:6px}
+}
+
+#why .why-btn{position:relative}

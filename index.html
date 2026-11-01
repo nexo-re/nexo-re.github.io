@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nexoré | Cinematic, fast web design for real businesses</title>
+<meta name="description" content="Nexoré designs cinematic, fast, SEO-optimized websites for real businesses. Watch the story, then explore selected work.">
+<meta name="theme-color" content="#02060f">
+<link rel="canonical" href="https://nexo-re.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nexoré">
+<meta property="og:locale" content="en">
+<meta property="og:title" content="Nexoré | Cinematic, fast web design for real businesses">
+<meta property="og:description" content="Cinematic, fast, SEO-optimized websites for real businesses. Four live demo sites you can open and try.">
+<meta property="og:url" content="https://nexo-re.github.io/">
+<meta property="og:image" content="https://nexo-re.github.io/assets/og/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nexoré: websites worth staying up for. A night-time pixel-art house with one lit window.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nexoré | Cinematic, fast web design for real businesses">
+<meta name="twitter:description" content="Cinematic, fast, SEO-optimized websites for real businesses. Four live demo sites you can open and try.">
+<meta name="twitter:image" content="https://nexo-re.github.io/assets/og/og-home.jpg">
+<meta name="color-scheme" content="dark">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%2302060f%27/%3E%3Cpath d=%27M9 23V9l14 14V9%27 fill=%27none%27 stroke=%27%232f6bf0%27 stroke-width=%273.2%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff" href="assets/fonts/BricolageGrotesque-Bold.woff" crossorigin>
+<link rel="preload" as="font" type="font/woff" href="assets/fonts/WorkSans-Regular.woff" crossorigin>
+<!-- first-frame still: the landscape (desktop) film or the portrait (mobile) film, picked by screen shape.
+     The breakpoint (min-aspect-ratio: 6/5) is the same one used in css/styles.css and js/app.js -->
+<link rel="preload" as="image" type="image/webp" href="assets/img/hero-desktop-first.webp" media="(min-aspect-ratio: 6/5)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="assets/img/hero-first.webp" media="not all and (min-aspect-ratio: 6/5)" fetchpriority="high">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "@id": "https://nexo-re.github.io/#business", "name": "Nexoré", "url": "https://nexo-re.github.io/", "image": "https://nexo-re.github.io/assets/og/og-home.jpg", "logo": "https://nexo-re.github.io/assets/og/og-default.jpg", "description": "Nexoré designs cinematic, fast, SEO-optimized websites for real businesses.", "email": "nexoree@gmail.com", "sameAs": ["https://www.instagram.com/nexo.re_/"], "areaServed": "Worldwide", "serviceType": ["Web design", "Website development", "E-commerce website design", "Search engine optimisation"], "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "email": "nexoree@gmail.com", "availableLanguage": "English", "url": "https://nexo-re.github.io/contact.html"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Nexoré", "url": "https://nexo-re.github.io/", "publisher": {"@id": "https://nexo-re.github.io/#business"}}</script>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/why.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="css/why.css"></noscript>
+<script src="js/analytics.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/why.js" defer></script>
+</head>
+<body>
+
+<header class="nav glass" id="nav">
+  <div class="nav__fx" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <a class="brand" href="#" aria-label="Nexoré — back to top"><span aria-hidden="true">NE<b>X</b>ORÉ</span></a>
+  <nav class="nav__actions" aria-label="Primary">
+    <a class="nav__link" href="case-studies.html" data-cta="nav-case-studies">Case studies</a>
+    <a class="nav__link nav__start" href="contact.html" data-cta="nav-start-project">Start a project</a>
+    <a class="btn btn--primary glass" id="navContact" href="https://www.instagram.com/nexo.re_?rpxt=amF1NGVtazZtZDdp" target="_blank" rel="noopener noreferrer" aria-label="Get a free quote from Nexoré" aria-haspopup="dialog" aria-controls="contact" data-cta="nav-quote">Get a quote</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="hero" aria-label="Nexoré intro">
+    <div class="stage" id="stage">
+
+      <!-- blurred colour wash for any bars around the film (side gutters on the 9:16 film, thin edges on the 16:9 film) -->
+      <div class="ambient" aria-hidden="true"><canvas id="ambient" width="24" height="43"></canvas></div>
+
+      <!-- the film: 9:16 on phones / portrait, 16:9 on desktop / landscape (swapped automatically).
+           Hotspot lives INSIDE this box so its % coordinates track the video at any size -->
+      <div class="frame" id="frame">
+        <picture>
+          <source media="(min-aspect-ratio: 6/5)" srcset="assets/img/hero-desktop-first.webp" width="1920" height="1080">
+          <img class="frame__img frame__poster" id="poster" src="assets/img/hero-first.webp" alt="Night-time pixel-art scene: a moonlit town and a house with one lit window where a developer sits at a desk" width="810" height="1440" decoding="async" fetchpriority="high">
+        </picture>
+        <picture>
+          <source media="(min-aspect-ratio: 6/5)" srcset="assets/img/hero-desktop-last.webp" width="1920" height="1080">
+          <img class="frame__img frame__end" id="endImg" src="assets/img/hero-last.webp" alt="A monitor showing the Nexoré website: “Build Modern Web Experiences” with a View Portfolio button" width="810" height="1440" decoding="async">
+        </picture>
+        <video class="frame__video" id="video" muted playsinline preload="auto" tabindex="-1" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+        <script>
+        /* Start downloading the right film immediately (while the page is still parsing) – js/app.js picks it up and plays it
+           as soon as the browser can play it through. Same breakpoint as the rest of the site: (min-aspect-ratio: 6/5). */
+        (function(){try{
+          if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+          var c=navigator.connection,lite=!!(c&&(c.saveData||/(^|-)2g$/.test(c.effectiveType||''))),
+              d=matchMedia('(min-aspect-ratio: 6/5)').matches,v=document.getElementById('video');
+          v.muted=true;v.preload='auto';
+          v.src=d?(lite?'assets/video/hero-desktop-lite.mp4':'assets/video/hero-desktop.mp4')
+                 :(lite?'assets/video/hero-scrub-lite.mp4':'assets/video/hero-scrub.mp4');
+        }catch(e){}})();
+        </script>
+        <div class="frame__bloom" id="bloom" aria-hidden="true"></div>
+        <button class="hotspot" id="hotspot" type="button" aria-label="View Portfolio" aria-hidden="true" tabindex="-1">
+          <span class="hotspot__ping" aria-hidden="true"></span>
+          <span class="hotspot__ring" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="scrim" aria-hidden="true"></div>
+
+      <div class="caps" id="caps">
+        <div class="cap glass" data-a="0" data-b="0.2" data-da="0" data-db="0.2" data-first>
+          <h1>Websites worth staying up for.</h1>
+          <p>Cinematic, fast, SEO-optimized web design by Nexoré.</p>
+          <p class="cap__promise">Free quote · We reply within 24 hours</p>
+        </div>
+        <div class="cap glass" data-a="0.2" data-b="0.5" data-da="0.22" data-db="0.5">
+          <h2>One window. One idea.</h2>
+          <p>Every build starts with a single lit screen and a clear point of view.</p>
+        </div>
+        <div class="cap glass" data-a="0.5" data-b="0.8" data-da="0.54" data-db="0.72">
+          <h2>Then it goes live.</h2>
+          <p>Here’s what’s on the monitor.</p>
+        </div>
+      </div>
+
+      <div class="cue glass" id="cue" data-state="loading" role="status" aria-live="polite">
+        <span class="cue__bar" aria-hidden="true"><i id="cueBar"></i></span>
+        <span class="cue__icon" aria-hidden="true">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg>
+        </span>
+        <span class="cue__txt" id="cueTxt">Loading scene 0%</span>
+      </div>
+
+      <p class="sr-only">A night-time pixel-art film: a moonlit house, a lit window, a developer at a desk, and finally the Nexoré website glowing on the monitor. It plays automatically. At the end, activate “View Portfolio” to open four demo websites.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ Gallery: dark-blue glass space ============ -->
+<div class="space" id="space" role="dialog" aria-modal="true" aria-labelledby="spaceTitle">
+  <div class="space__bg" aria-hidden="true">
+    <div class="stars" id="stars"><i class="stars__t"></i><i class="stars__t stars__t--f"></i><i class="stars__t"></i><i class="stars__t stars__t--f"></i></div>
+    <i class="orb orb--a"></i><i class="orb orb--b"></i><i class="orb orb--c"></i>
+  </div>
+  <div class="space__flash" aria-hidden="true"></div>
+
+  <h2 class="sr-only" id="spaceTitle">Selected work — four demo websites</h2>
+
+  <div class="space__top">
+    <span class="brand brand--static" aria-hidden="true">NE<b>X</b>ORÉ</span>
+    <div class="space__actions">
+      <a class="btn btn--primary glass" id="spaceContact" href="https://www.instagram.com/nexo.re_?rpxt=amF1NGVtazZtZDdp" target="_blank" rel="noopener noreferrer" aria-label="Contact Nexoré" aria-haspopup="dialog" aria-controls="contact">Contact</a>
+      <button class="btn btn--glass glass" type="button" id="featBtn" aria-haspopup="dialog" aria-controls="feat">Why Nexoré</button>
+      <button class="btn btn--glass glass" type="button" id="backBtn">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+        Back
+      </button>
+    </div>
+  </div>
+
+  <!-- Rotating heading: tells you what kind of site is at the front of the ring -->
+  <div class="space__head" id="head" aria-hidden="true">
+    <div class="head__inner" id="headInner">
+      <p class="head__eyebrow" id="headEyebrow"></p>
+      <p class="head__title" id="headTitle"></p>
+    </div>
+  </div>
+
+  <div class="scene" id="scene">
+    <div class="ringwrap" id="ringwrap">
+      <div class="ring" id="ring"></div>
+    </div>
+  </div>
+
+  <div class="space__dock">
+    <section class="info glass" id="info" aria-label="About the site at the front">
+      <div class="info__aurora" aria-hidden="true">
+        <video id="auroraVid" data-src="assets/video/aurora.mp4" poster="assets/img/aurora-poster.webp" muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"></video>
+      </div>
+      <p class="hint" id="hint">Drag to spin · tap a site to open it</p>
+      <div class="info__dots" id="dots" role="group" aria-label="Choose a site"></div>
+      <button class="dock__btn info__prev" type="button" id="prevBtn" aria-label="Previous site">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.5L5.5 8 10 12.5"/></svg>
+      </button>
+      <div class="info__title">
+        <strong id="nowTitle"></strong>
+        <span id="nowKind"></span>
+      </div>
+      <button class="dock__btn info__next" type="button" id="nextBtn" aria-label="Next site">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg>
+      </button>
+      <ul class="info__feats" id="feats"></ul>
+    </section>
+  </div>
+  <p class="sr-only" id="live" aria-live="polite"></p>
+
+
+  <!-- Why Nexoré: features of the web-design service -->
+  <div class="feat" id="feat" hidden>
+    <section class="feat__card glass" role="dialog" aria-modal="true" aria-labelledby="featTitle">
+      <button class="dock__btn feat__x" type="button" id="featClose" aria-label="Close">
+        <svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+      </button>
+      <p class="feat__eyebrow">Why Nexoré</p>
+      <h3 class="feat__title" id="featTitle">Websites built the way your business works.</h3>
+      <ul class="feat__grid">
+        <li><span class="feat__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 3h6"/></svg></span><b>Delivered in under 7 days</b><span>From first call to a live site in a week, not months.</span></li>
+        <li><span class="feat__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3"/></svg></span><b>100% customised</b><span>Designed around your brand, never a recycled template.</span></li>
+        <li><span class="feat__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg></span><b>SEO optimized</b><span>Clean structure and fast loading so customers can find you on Google.</span></li>
+        <li><span class="feat__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></span><b>Introductory pricing</b><span>Launch-offer rates for our first clients. Message us for a quote.</span></li>
+        <li><span class="feat__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></span><b>Mobile-first &amp; fast</b><span>Smooth on every phone, tablet and desktop.</span></li>
+        <li><span class="feat__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4l14 8-14 8z"/></svg></span><b>Cinematic motion</b><span>Animation and storytelling that make visitors stay.</span></li>
+      </ul>
+      <a class="btn btn--primary glass feat__cta" id="featContact" href="#" target="_blank" rel="noopener noreferrer">Get your site</a>
+      <a class="feat__more" href="case-studies.html" data-cta="why-case-studies">Read the case studies →</a>
+    </section>
+  </div>
+
+  <!-- Heads-up shown before a heavy site opens (see CONFIG.sites[].warn in js/app.js) -->
+  <div class="warn" id="warn" hidden>
+    <div class="warn__card glass" role="alertdialog" aria-modal="true" aria-labelledby="warnTitle" aria-describedby="warnText">
+      <span class="warn__tag" aria-hidden="true">3D</span>
+      <h3 id="warnTitle">Heads up before you open this</h3>
+      <p id="warnText"></p>
+      <div class="warn__actions">
+        <button class="btn btn--glass glass" type="button" id="warnCancel">Go back</button>
+        <a class="btn btn--primary glass" id="warnGo" href="#" target="_blank" rel="noopener noreferrer">Open site</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Contact sheet: Instagram or a ready-written email draft (see CONFIG.email in js/app.js) -->
+<div class="contact" id="contact" hidden>
+  <div class="contact__card glass" id="contactBox" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="dock__btn contact__x" type="button" id="contactClose" aria-label="Close">
+      <svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+    </button>
+    <p class="feat__eyebrow">Contact</p>
+    <h3 class="contact__title" id="contactTitle">How would you like to reach us?</h3>
+    <p class="contact__promise">We reply to every enquiry within 24 hours.</p>
+    <a class="contact__opt" id="contactIg" href="https://www.instagram.com/nexo.re_?rpxt=amF1NGVtazZtZDdp" target="_blank" rel="noopener noreferrer">
+      <span class="contact__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></span>
+      <span class="contact__tx"><b>Instagram</b><small>Send us a message on @nexo.re_</small></span>
+      <svg class="contact__go" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg>
+    </a>
+    <a class="contact__opt" id="contactMail" href="mailto:nexoree@gmail.com" rel="noopener noreferrer">
+      <span class="contact__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7.5l8 6 8-6"/></svg></span>
+      <span class="contact__tx"><b>Email</b><small id="contactAddr">nexoree@gmail.com</small><small class="contact__hint">Opens a ready-made draft for you to fill in</small></span>
+      <svg class="contact__go" viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5"/></svg>
+    </a>
+    <a class="contact__alt" id="contactAlt" href="mailto:nexoree@gmail.com">Use my default mail app instead</a>
+  </div>
+</div>
+
+<!-- Circular reveal layer: the opened demo site grows out of the tapped card -->
+<div class="siteview" id="siteView" hidden>
+  <div class="siteview__slot" id="svSlot"></div>
+  <div class="siteview__veil" id="svVeil" role="status" aria-live="polite">
+    <div class="nxl__bg" id="svBg" aria-hidden="true"></div>
+    <i class="nxl__orb nxl__orb--a" aria-hidden="true"></i><i class="nxl__orb nxl__orb--b" aria-hidden="true"></i>
+    <div class="nxl">
+      <div class="nxl__head"><span id="svKind"></span><strong id="svTitle"></strong></div>
+      <div class="nxl__ring" id="svProg" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Loading demo website">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="nxl__track" cx="60" cy="60" r="52"/><circle class="nxl__fg" id="svRingFg" cx="60" cy="60" r="52"/></svg>
+        <b id="svPct" aria-hidden="true">0%</b>
+      </div>
+      <p class="nxl__stage" id="svStage">Getting ready…</p>
+      <div class="nxl__fact" aria-hidden="true"><small>Did you know?</small><p id="svFact"></p></div>
+      <div class="nxl__dots" id="svDots" aria-hidden="true"></div>
+    </div>
+  </div>
+  <button class="btn btn--glass glass siteview__back" type="button" id="svBack" aria-label="Back to Nexoré portfolio">
+    <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>
+    Nexoré
+  </button>
+</div>
+<div class="siteview__ring" id="svRing" hidden aria-hidden="true"></div>
+
+<noscript>
+  <style>.hero{height:100svh!important}.frame__end{opacity:1!important}.cue,.skip,.caps{display:none!important}</style>
+  <p class="noscript">Nexoré’s portfolio needs JavaScript for its intro film and 3D gallery. See our <a href="case-studies.html">case studies</a>, <a href="contact.html">get a quote</a> or reach us on <a href="https://www.instagram.com/nexo.re_?rpxt=amF1NGVtazZtZDdp" target="_blank" rel="noopener noreferrer">Instagram @nexo.re_</a>.</p>
+</noscript>
+
+</body>
+</html>

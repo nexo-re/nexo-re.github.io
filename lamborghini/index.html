@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Lamborghini Revuelto — The New Era of V12 Performance</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lamborghini Revuelto — The New Era of V12 Performance">
+<meta property="og:description" content="An interactive cinematic scroll experience exploring the design, hybrid powertrain, and aerodynamics of the Lamborghini Revuelto.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:image" content="https://nexo-re.github.io/assets/og/og-lamborghini.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dark grey Lamborghini Revuelto supercar in a black studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nexo-re.github.io/assets/og/og-lamborghini.jpg">
+<meta name="twitter:title" content="Lamborghini Revuelto — The New Era of V12 Performance">
+<meta name="twitter:description" content="An interactive cinematic scroll experience exploring the design, hybrid powertrain, and aerodynamics of the Lamborghini Revuelto.">
+
+  <meta name="description" content="An interactive cinematic scroll experience exploring the design, hybrid powertrain, and aerodynamics of the Lamborghini Revuelto.">
+
+  <!-- Typography: Montserrat (Light 300 & Semi-Bold 600) with robust system fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Rotate prompt: shown only on phones held upright (portrait). Disappears automatically in landscape. -->
+  <div id="rotate-gate" role="alertdialog" aria-modal="true" aria-labelledby="rotate-title">
+    <div class="rotate-inner">
+      <svg class="rotate-icon" viewBox="0 0 64 64" width="84" height="84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <g class="rotate-phone">
+          <rect x="22" y="8" width="20" height="36" rx="3.5"/>
+          <line x1="29" y1="39" x2="35" y2="39"/>
+        </g>
+        <path class="rotate-arrow" d="M12 52c8 6 22 6 32-2m0 0l-8-1m8 1l1-8" transform="translate(4 0)"/>
+      </svg>
+      <p id="rotate-title">Please rotate your device</p>
+      <p class="rotate-sub">This experience is best viewed in horizontal mode.</p>
+    </div>
+  </div>
+
+  <!-- Full-screen Canvas: Always fixed, zero wrappers/cards/containers -->
+  <!-- The film: decoded off-screen, scrubbed by scroll, painted onto the canvas below -->
+  <video id="bg-video" muted playsinline preload="auto" tabindex="-1" aria-hidden="true" disablepictureinpicture disableremoteplayback></video>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Typography Overlays: Pure text with text-shadow only; zero boxes or gradient overlays -->
+  <div id="text-overlay" aria-live="polite"></div>
+
+  <!-- Empty Scroll Spacer: Native scroll driver (1200vh) -->
+  <div id="scroll-spacer" aria-hidden="true"></div>
+
+  <!-- Lenis: normalises wheel / trackpad scrolling into one fluid motion (optional - app.js works without it) -->
+
+  <!-- Application Logic -->
+  <script src="rotate-gate.js"></script>
+  <script src="timeline.js"></script>
+  <script src="scrub-engine.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>

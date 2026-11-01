@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VÉYRA Fragrances | After Dark</title>
+<meta name="description" content="Demo luxury fragrance store by Nexoré: a scroll-scrubbed hero film where the bottle lands in a shop with scent-family filters and a free-shipping cart.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VÉYRA Fragrances | After Dark">
+<meta property="og:description" content="Demo luxury fragrance store by Nexoré: a scroll-scrubbed hero film where the bottle lands in a shop with scent-family filters and a free-shipping cart.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:image" content="https://nexo-re.github.io/assets/og/og-veyra.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VÉYRA After Dark perfume bottle on a dark stone surface">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nexo-re.github.io/assets/og/og-veyra.jpg">
+<meta name="twitter:title" content="VÉYRA Fragrances | After Dark">
+<meta name="twitter:description" content="Demo luxury fragrance store by Nexoré: a scroll-scrubbed hero film where the bottle lands in a shop with scent-family filters and a free-shipping cart.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#f2e8d5;--mute:#f2e8d599;--gold:#c9a45c;--glass:rgba(255,255,255,.06);--line:rgba(255,255,255,.13);--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg)}
+html.lock{overscroll-behavior:none}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top)) 22px 16px;mix-blend-mode:normal}
+.logo{font-family:var(--serif);font-size:22px;letter-spacing:.32em;font-weight:500}
+nav div{display:flex;gap:26px;align-items:center;font-size:14px;letter-spacing:.08em}
+nav a{color:var(--ink);text-decoration:none;opacity:.8}
+#cartBtn{border:1px solid var(--line);border-radius:99px;padding:7px 16px;backdrop-filter:blur(10px);background:rgba(0,0,0,.35)}
+/* hero */
+#hero{position:relative;height:650vh}
+#stage{position:sticky;top:0;height:100svh;overflow:hidden;z-index:1}
+#v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;transform:translateZ(0);backface-visibility:hidden}
+.cap{position:absolute;opacity:0;pointer-events:none;max-width:min(560px,84vw);text-shadow:0 2px 30px #000;will-change:opacity,transform,filter}
+.cap h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.6vw,88px);line-height:1.02;color:var(--c,var(--ink))}
+.cap p{margin-top:1.2vh;font-size:clamp(14px,1.25vw,22px);color:var(--c,var(--ink));opacity:.75;letter-spacing:.06em}
+.cap.sm h2{font-family:var(--sans);font-weight:400;font-size:clamp(12px,1vw,17px);letter-spacing:.42em;text-transform:uppercase}
+.cap.sm p{font-size:clamp(12px,.95vw,16px)}
+.cap i{display:block;width:3.2vw;min-width:34px;height:1px;background:var(--c,var(--gold));margin-top:1.8vh;opacity:.8}
+.cap.R{text-align:right}.cap.R i{margin-left:auto}
+#scrollCue{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,14px);z-index:50;display:grid;justify-items:center;gap:8px;font-size:12px;letter-spacing:.3em;color:var(--ink);text-shadow:0 2px 18px #000;opacity:0;pointer-events:none;transition:opacity .7s var(--ease,ease),transform .7s var(--ease,ease)}
+#scrollCue.on{opacity:1;transform:translate(-50%,0)}
+#scrollCue i{width:1px;height:38px;background:linear-gradient(var(--gold),transparent);animation:dr 1.8s ease-in-out infinite}
+@keyframes dr{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+#fly{position:fixed;z-index:5;left:0;top:0;width:0;height:0;opacity:0;pointer-events:none;background:#000;will-change:left,top,width,height}
+#fly img,.slot{width:100%;height:100%;object-fit:contain;display:block}
+#load{position:fixed;inset:0;z-index:99;background:#000;display:grid;place-items:center;font-family:var(--serif);letter-spacing:.5em;font-size:20px;transition:opacity .8s}
+/* collection — Apple-style dark shop */
+:root{--surf:#0c0c0e;--surf2:#141416;--hair:rgba(255,255,255,.09);--hair2:rgba(255,255,255,.16);--ease:cubic-bezier(.16,1,.3,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+#collection{position:relative;z-index:2;padding:12vh 5vw 14vh;overflow:hidden;background:#000}
+#collection:before{content:"";position:absolute;z-index:-1;pointer-events:none;width:80vw;height:60vw;max-width:1100px;max-height:800px;left:50%;top:-6%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(201,164,92,.13),transparent)}
+.head{max-width:1240px;margin:0 auto 5vh;text-align:center}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.head h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.4vw,76px);line-height:1.03;letter-spacing:-.01em}
+.head p{margin:14px auto 0;color:var(--mute);max-width:46ch;line-height:1.6;font-size:clamp(14px,1.2vw,17px)}
+/* filter pills */
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 auto 5vh;max-width:1240px}
+.pill{height:40px;padding:0 20px;border-radius:99px;border:1px solid var(--hair);background:var(--surf);color:var(--mute);font-size:13.5px;letter-spacing:.02em;transition:background .3s var(--ease),color .3s,border-color .3s,transform .3s var(--ease)}
+.pill:hover{color:var(--ink);border-color:var(--hair2)}
+.pill:active{transform:scale(.96)}
+.pill.on{background:var(--ink);color:#0a0a0a;border-color:var(--ink);font-weight:500}
+#count{display:block;text-align:center;font-size:12.5px;color:var(--mute);margin:-3vh auto 4vh;letter-spacing:.04em}
+/* grid */
+#grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{position:relative;display:flex;flex-direction:column;border-radius:28px;background:var(--surf);border:1px solid var(--hair);overflow:hidden;
+ transition:transform .5s var(--ease),border-color .4s,box-shadow .5s var(--ease)}
+.card:hover{transform:translateY(-6px);border-color:var(--hair2);box-shadow:0 34px 60px -34px rgba(0,0,0,.95),0 0 0 1px rgba(201,164,92,.12)}
+.card:not(.first){opacity:0;translate:0 26px;transition:opacity .8s,translate .8s,border-color .4s,transform .5s var(--ease),box-shadow .5s var(--ease);transition-delay:calc(var(--i)*90ms),calc(var(--i)*90ms),0s,0s,0s}
+#grid.landed .card{opacity:1;translate:0 0}
+.card.first{opacity:var(--g,0)}
+.card.hide{display:none}
+.pic{position:relative;aspect-ratio:1/1.08;background:radial-gradient(70% 55% at 50% 58%,rgba(201,150,70,.22),transparent 72%),linear-gradient(180deg,#121214,#08080a)}
+.pic>*{position:absolute;inset:8% 14%;width:72%;height:86%}
+.pic svg{filter:drop-shadow(0 20px 26px rgba(0,0,0,.7));transition:transform .7s var(--ease)}
+.card:hover .pic svg,.card:hover .pic .slot{transform:scale(1.045)}
+.slot{opacity:0;transition:transform .7s var(--ease)}
+.tag{position:absolute!important;inset:auto!important;top:14px;left:14px;width:auto!important;height:auto!important;padding:5px 11px;border-radius:99px;font-size:11px;letter-spacing:.06em;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--hair2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.tag.gold{color:#120d05;background:var(--gold);border-color:var(--gold);font-weight:500}
+.body{display:flex;flex-direction:column;flex:1;padding:18px 18px 18px}
+.fam{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.9}
+.card h3{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.1;margin-top:8px}
+.notes{font-size:13.5px;color:var(--mute);margin-top:6px;line-height:1.45;min-height:2.9em}
+/* size selector (Apple segmented control) */
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:3px;margin:16px 0 0;border-radius:12px;background:#0a0a0c;border:1px solid var(--hair)}
+.seg button{height:34px;border-radius:9px;font-size:13px;color:var(--mute);transition:background .3s var(--ease),color .3s,box-shadow .3s}
+.seg button.on{background:#232326;color:var(--ink);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 4px 10px -4px #000}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--hair)}
+.price{font-family:var(--serif);font-size:28px;font-weight:500;line-height:1}
+.price small{display:block;font-family:var(--sans);font-size:11px;font-weight:300;color:var(--mute);margin-top:5px;letter-spacing:.04em}
+.add{height:42px;padding:0 20px;border-radius:99px;background:var(--ink);color:#0a0a0a;font-size:13.5px;font-weight:500;letter-spacing:.02em;display:inline-flex;align-items:center;gap:7px;transition:transform .35s var(--spring),background .3s,box-shadow .3s}
+.add:hover{background:#fff;box-shadow:0 8px 22px -8px rgba(242,232,213,.5)}
+.add:active{transform:scale(.94)}
+.add.done{background:var(--gold)}
+.add svg{width:14px;height:14px}
+footer{position:relative;z-index:2;padding:6vh 5vw calc(6vh + env(safe-area-inset-bottom));border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:space-between;color:var(--mute);font-size:13.5px;line-height:1.6;background:#000}
+footer a{color:var(--gold)}
+/* cart — frosted dark drawer */
+#scrim{position:fixed;inset:0;z-index:79;background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#scrim.on{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:10px;right:10px;bottom:10px;width:min(430px,calc(100vw - 20px));z-index:80;display:flex;flex-direction:column;border-radius:30px;
+ padding:calc(22px + env(safe-area-inset-top)) 22px calc(20px + env(safe-area-inset-bottom));
+ background:linear-gradient(180deg,rgba(24,24,27,.92),rgba(10,10,12,.96));-webkit-backdrop-filter:blur(30px) saturate(150%);backdrop-filter:blur(30px) saturate(150%);
+ border:1px solid var(--hair2);box-shadow:0 40px 90px -20px #000,inset 0 1px 0 rgba(255,255,255,.1);
+ transform:translateX(112%);transition:transform .55s var(--ease)}
+#drawer.open{transform:none}
+.dh{display:flex;align-items:center;justify-content:space-between}
+.dh h3{font-family:var(--serif);font-size:32px;font-weight:400;letter-spacing:-.005em}
+.dh h3 small{font-family:var(--sans);font-size:13px;color:var(--mute);margin-left:8px;letter-spacing:.04em}
+#close{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:background .3s,transform .3s var(--ease)}
+#close:hover{background:rgba(255,255,255,.16)}#close:active{transform:scale(.92)}
+#close svg{width:14px;height:14px}
+/* free-shipping meter */
+.ship{margin:18px 0 4px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid var(--hair)}
+.ship p{font-size:13.5px;color:var(--ink);line-height:1.4}
+.ship p b{font-weight:500;color:var(--gold)}
+.bar{height:5px;border-radius:9px;background:rgba(255,255,255,.1);margin-top:11px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#8a6a2c,var(--gold),#f0d79a);transition:width .7s var(--ease)}
+#items{flex:1;overflow:auto;margin:10px -6px 12px;padding:0 6px;display:flex;flex-direction:column;overscroll-behavior:contain}
+.it{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--hair);animation:rise .5s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+.thumb{width:64px;height:76px;border-radius:14px;background:radial-gradient(70% 60% at 50% 58%,rgba(201,150,70,.2),transparent 75%),#0a0a0c;border:1px solid var(--hair);display:grid;place-items:center;overflow:hidden}
+.thumb svg,.thumb img{width:78%;height:88%;object-fit:contain}
+.it h4{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.15}
+.it small{display:block;color:var(--mute);font-size:12.5px;margin:3px 0 9px}
+.qty{display:inline-flex;align-items:center;gap:2px;padding:2px;border-radius:99px;background:rgba(255,255,255,.07);border:1px solid var(--hair)}
+.qty button{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:16px;line-height:1;transition:background .25s,transform .25s var(--ease)}
+.qty button:hover{background:rgba(255,255,255,.14)}.qty button:active{transform:scale(.88)}
+.qty span{min-width:22px;text-align:center;font-size:13.5px}
+.lt{font-family:var(--serif);font-size:21px;font-weight:500;align-self:start;padding-top:2px}
+.empty{margin:auto;text-align:center;color:var(--mute);padding:30px 14px;line-height:1.6}
+.empty svg{width:46px;height:46px;opacity:.5;margin-bottom:14px;stroke:var(--ink)}
+.empty b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:var(--ink);margin-bottom:4px}
+.sum{padding-top:16px;border-top:1px solid var(--hair)}
+.sum div{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-bottom:8px}
+.sum div.t{font-size:15px;color:var(--ink);margin:12px 0 16px;align-items:baseline}
+.sum div.t span:last-child{font-family:var(--serif);font-size:32px;font-weight:500;line-height:1}
+#co{width:100%;height:54px;border-radius:99px;background:var(--ink);color:#0a0a0a;font-size:15.5px;font-weight:500;letter-spacing:.02em;transition:transform .35s var(--spring),background .3s,opacity .3s}
+#co:hover{background:#fff}#co:active{transform:scale(.98)}
+#co:disabled{opacity:.35;cursor:not-allowed}
+.fine{text-align:center;font-size:12px;color:var(--mute);margin-top:12px;letter-spacing:.02em}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;z-index:90;padding:12px 20px;border-radius:99px;background:rgba(28,28,31,.92);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--hair2);font-size:14px;transition:.45s var(--ease);pointer-events:none;white-space:nowrap}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:1100px){#grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:820px){#grid{grid-template-columns:repeat(2,1fr);gap:14px}}
+@media(max-width:560px){nav div a{display:none}.logo{font-size:18px}#collection{padding:10vh 16px 12vh}#grid{gap:12px}.card{border-radius:22px}.pic{aspect-ratio:1/1}.body{padding:14px 13px 14px}.card h3{font-size:21px}.fam{font-size:10px}.notes{font-size:12.5px}.seg button{height:32px;font-size:12px}.price{font-size:23px}.add{padding:0 14px;height:38px;font-size:12.5px}.foot{margin-top:13px;padding-top:13px}.cap{left:6vw!important;right:6vw!important;top:auto!important;bottom:15vh!important;text-align:left!important;max-width:none}.cap.R i{margin-left:0}#toast{white-space:normal;width:88vw;text-align:center;border-radius:18px}#drawer{top:0;right:0;bottom:0;width:100vw;border-radius:0}.pill{height:38px;padding:0 16px}}
+@media(prefers-reduced-motion:reduce){#scrollCue i{animation:none}.card,.pic svg,.slot,#drawer,.bar i,.it{transition:none!important;animation:none!important}}
+
+/* Rotate gate: phones held upright are asked to switch to horizontal mode */
+#rotate-gate{display:none;position:fixed;inset:0;z-index:9999;background:#000;color:var(--ink);align-items:center;justify-content:center;text-align:center;padding:2rem}
+.rotate-inner{max-width:18rem}
+.rotate-icon{color:var(--ink);margin-bottom:1.5rem}
+.rotate-phone{transform-origin:32px 26px;animation:rotate-phone 2.6s ease-in-out infinite}
+.rotate-arrow{opacity:.55}
+#rotate-title{font-weight:400;font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+.rotate-sub{font-weight:300;font-size:.9rem;line-height:1.5;opacity:.75}
+@keyframes rotate-phone{0%,20%{transform:rotate(0)}55%,80%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+@media(prefers-reduced-motion:reduce){.rotate-phone{animation:none}}
+@media (orientation:portrait) and (pointer:coarse) and (max-width:820px){#rotate-gate{display:flex}html,body{overflow:hidden;height:100%}}
+</style>
+</head>
+<body>
+<div id="rotate-gate" role="alertdialog" aria-modal="true" aria-labelledby="rotate-title">
+  <div class="rotate-inner">
+    <svg class="rotate-icon" viewBox="0 0 64 64" width="84" height="84" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <g class="rotate-phone"><rect x="22" y="8" width="20" height="36" rx="3.5"/><line x1="29" y1="39" x2="35" y2="39"/></g>
+      <path class="rotate-arrow" d="M12 52c8 6 22 6 32-2m0 0l-8-1m8 1l1-8" transform="translate(4 0)"/>
+    </svg>
+    <p id="rotate-title">Please rotate your device</p>
+    <p class="rotate-sub">This experience is best viewed in horizontal mode.</p>
+  </div>
+</div>
+<div id="load">VÉYRA</div>
+<div id="scrollCue" aria-hidden="true"><span>SCROLL</span><i></i></div>
+<nav><span class="logo">VÉYRA</span><div><a href="#collection">Collection</a><button id="cartBtn" aria-label="Open cart">Cart (<span id="cnt">0</span>)</button></div></nav>
+
+<section id="hero">
+  <div id="stage">
+    <video id="v" muted playsinline preload="auto" poster="assets/poster.jpg"></video>
+  </div>
+</section>
+<div id="fly"><img src="assets/bottle.png" alt="VÉYRA After Dark perfume bottle"></div>
+
+<section id="collection">
+  <div class="head"><span class="eyebrow">The Collection</span><h2>Find your after&nbsp;dark.</h2><p>Eight scents, blended in small batches and bottled by hand. Filter by family, choose a size, and build your bag.</p></div>
+  <div class="filters" id="filters" role="group" aria-label="Filter by scent family"></div>
+  <div id="grid"></div>
+</section>
+<footer>
+  <span>VÉYRA is a fictional brand, built as a demo: no real products, prices or contact details.<br>Website concept by <a href="https://www.instagram.com/nexo.re_?rpxt=amF1NGVtazZtZDdp" target="_blank" rel="noopener noreferrer">NEXORÉ Digital Studio</a>.</span>
+  <span>Free shipping over $90<br>30-day returns</span>
+</footer>
+
+<div id="scrim"></div>
+<aside id="drawer" aria-label="Cart" aria-hidden="true" inert>
+  <div class="dh"><h3>Your cart<small id="dn"></small></h3><button id="close" aria-label="Close cart"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 2l10 10M12 2L2 12"/></svg></button></div>
+  <div class="ship" id="ship"><p id="shipTxt"></p><div class="bar"><i id="shipBar"></i></div></div>
+  <div id="items"></div>
+  <div class="sum" id="sumBox">
+    <div><span>Subtotal</span><span id="sub">$0</span></div>
+    <div><span>Shipping</span><span id="shp">$0</span></div>
+    <div class="t"><span>Total</span><span id="sum">$0</span></div>
+    <button id="co">Checkout</button>
+    <p class="fine">Demo store · no payment is taken</p>
+  </div>
+</aside>
+<div id="toast"></div>
+
+<script src="scrub-engine.js"></script>
+<script>
+/* ===== EDIT ME ===== */
+const CFG={
+  cur:'$',
+  bottle:{x:0.40781,y:0.19444,w:0.19740,h:0.61944}, // final-frame bottle box, as fractions of the video frame
+  centre:[[0,.4950],[5,.4935],[12,.4930],[14,.4900]], centreTo:44, // tall/portrait screens only: bottle's true horizontal centre (fraction of video width) at these seconds in the opening shots; eased to the final-frame bottle by centreTo so it sits dead-centre
+  caps:[ // a/b = start/end second in the video. fx: rise | spread | slideR | mist. R:1 = right-aligned. sm:1 = small text
+    {a:3,b:5,pos:'left:6vw;top:18vh',h:'VÉYRA PERFUMES',p:'Scents with a shadow.',fx:'spread',col:'#f2e8d5'},
+    {a:7,b:11,pos:'right:6vw;top:17vh',R:1,h:'Notes that linger',p:'Smoked oud. Warm amber. Dark vanilla.',fx:'slideR',col:'#e0b865'},
+    {a:16,b:20,pos:'left:6vw;top:28vh',h:'Heavy glass.<br>Light touch.',p:'Hand-poured in small batches.',fx:'rise',col:'#e9e6df'},
+    {a:27,b:29,pos:'left:6vw;top:22vh',sm:1,h:'After Dark &middot; Eau de Parfum',p:'Oud &middot; Amber &middot; Smoked vanilla &middot; 30 ml',fx:'rise',col:'#c9a45c'},
+    {a:37,b:40,pos:'right:6vw;top:13vh',R:1,h:'One press.<br>The room remembers.',p:'',fx:'mist',col:'#eceae6'}
+  ]
+};
+const PRODUCTS=[ // img: 'assets/xyz.png' replaces the drawn bottle. f = scent family (drives the filter pills). tag = small badge.
+  {n:'After Dark',no:'Oud, amber, smoked vanilla',pr:64,a:'#6b3a12',b:'#2a1405',img:'assets/bottle.png',f:'Amber',tag:'Signature',gold:1},
+  {n:'Midnight Fig',no:'Black fig, cedar, soft musk',pr:58,a:'#4a5a2a',b:'#16200c',f:'Woody'},
+  {n:'Velvet Saffron',no:'Saffron, rose, suede',pr:72,a:'#a2401a',b:'#3a1208',f:'Floral'},
+  {n:'Ember Rose',no:'Damask rose, pink pepper, amber',pr:62,a:'#8a2a3a',b:'#2e0c14',f:'Floral',tag:'New'},
+  {n:'Nocturne Oud',no:'Oud, incense, patchouli',pr:84,a:'#3b2a1a',b:'#0e0804',f:'Amber',tag:'Limited'},
+  {n:'Salt & Smoke',no:'Sea salt, driftwood, vetiver',pr:56,a:'#3f5a63',b:'#10202a',f:'Fresh'},
+  {n:'Obsidian Iris',no:'Iris, graphite, tonka bean',pr:68,a:'#4a3a6a',b:'#150e26',f:'Woody'},
+  {n:'Golden Hour',no:'Bergamot, neroli, white amber',pr:54,a:'#c9983a',b:'#5a3a0c',f:'Fresh'}
+];
+const SHIP_FREE=90,SHIP_FEE=6,SIZES=[30,50],price=(p,z)=>z===50?Math.round(p.pr*1.55):p.pr;
+/* ==================== */
+const $=s=>document.querySelector(s),clamp=(x,a=0,b=1)=>Math.min(Math.max(x,a),b),fmt=n=>CFG.cur+n;
+const svg=(p,i,x='')=>`<svg viewBox="0 0 200 300" aria-label="${p.n}"><defs><linearGradient id="${x}l${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${p.a}"/><stop offset="1" stop-color="${p.b}"/></linearGradient><linearGradient id="${x}g${i}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".38"/><stop offset=".22" stop-color="#fff" stop-opacity=".05"/><stop offset=".82" stop-color="#fff" stop-opacity=".03"/><stop offset="1" stop-color="#fff" stop-opacity=".26"/></linearGradient></defs><rect x="82" y="20" width="36" height="48" rx="3" fill="#0a0a0b" stroke="#fff3"/><rect x="86" y="68" width="28" height="9" fill="#b99a5b"/><rect x="40" y="86" width="120" height="192" rx="7" fill="url(#${x}l${i})"/><rect x="40" y="86" width="120" height="192" rx="7" fill="url(#${x}g${i})" stroke="#fff6"/><rect x="40" y="264" width="120" height="14" fill="#000" opacity=".35"/><text x="100" y="152" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="16" letter-spacing="3" fill="#f2e8d5">VÉYRA</text><text x="100" y="198" text-anchor="middle" font-family="Jost,sans-serif" font-size="8" letter-spacing="2" fill="#f2e8d5cc">${p.n.toUpperCase()}</text></svg>`;
+const FAMS=['All',...new Set(PRODUCTS.map(p=>p.f))],SZ=PRODUCTS.map(()=>30),PLUS='<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 2v10M2 7h10"/></svg>';
+const pic=(p,i)=>i===0?'<img class="slot" id="slot" src="'+p.img+'" alt="'+p.n+'">':p.img?'<img class="slot" style="opacity:1" src="'+p.img+'" alt="'+p.n+'">':svg(p,i);
+$('#filters').innerHTML=FAMS.map((f,k)=>`<button class="pill${k?'':' on'}" data-act="fam" data-v="${f}" aria-pressed="${k?'false':'true'}">${f}</button>`).join('');
+$('#grid').innerHTML=PRODUCTS.map((p,i)=>`<article class="card ${i?'':'first'}" style="--i:${i}" data-i="${i}" data-f="${p.f}"><div class="pic">${pic(p,i)}${p.tag?`<span class="tag${p.gold?' gold':''}">${p.tag}</span>`:''}</div><div class="body"><span class="fam">${p.f}</span><h3>${p.n}</h3><p class="notes">${p.no}</p><div class="seg" role="group" aria-label="Size for ${p.n}">${SIZES.map(z=>`<button data-act="sz" data-i="${i}" data-v="${z}" aria-pressed="${z===30}"${z===30?' class="on"':''}>${z} ml</button>`).join('')}</div><div class="foot"><div class="price"><span id="pr${i}">${fmt(price(p,30))}</span><small>Eau de parfum</small></div><button class="add" data-act="add" data-i="${i}" aria-label="Add ${p.n} to cart">${PLUS}<span>Add</span></button></div></div></article>`).join('');
+/* cart: [{i, z, q}] — kept in localStorage so a refresh doesn't empty the bag */
+let cart=[];try{cart=(JSON.parse(localStorage.getItem('veyra-cart')||'[]')||[]).filter(l=>PRODUCTS[l.i]&&SIZES.includes(l.z)&&l.q>0)}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem('veyra-cart',JSON.stringify(cart))}catch(e){}};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),2200)};
+const dr=$('#drawer'),scrim=$('#scrim');
+function draw(){
+  const n=cart.reduce((s,l)=>s+l.q,0),sub=cart.reduce((s,l)=>s+price(PRODUCTS[l.i],l.z)*l.q,0),ship=!n?0:sub>=SHIP_FREE?0:SHIP_FEE;
+  $('#cnt').textContent=n;$('#dn').textContent=n?n+(n>1?' items':' item'):'';
+  $('#sub').textContent=fmt(sub);$('#shp').textContent=!n?'—':ship?fmt(ship):'Free';$('#sum').textContent=fmt(sub+ship);
+  $('#co').disabled=!n;$('#sumBox').style.display=n?'':'none';
+  const left=SHIP_FREE-sub;$('#shipTxt').innerHTML=!n?'Free shipping on orders over <b>'+fmt(SHIP_FREE)+'</b>.':left>0?'You are <b>'+fmt(left)+'</b> away from free shipping.':'You have unlocked <b>free shipping</b>.';
+  $('#shipBar').style.width=Math.min(100,sub/SHIP_FREE*100)+'%';
+  $('#items').innerHTML=n?cart.map((l,k)=>{const p=PRODUCTS[l.i];return `<div class="it"><div class="thumb">${p.img?`<img src="${p.img}" alt="">`:svg(p,l.i,'c')}</div><div><h4>${p.n}</h4><small>${l.z} ml · ${fmt(price(p,l.z))}</small><div class="qty"><button data-act="dec" data-k="${k}" aria-label="Remove one ${p.n}">−</button><span>${l.q}</span><button data-act="inc" data-k="${k}" aria-label="Add one more ${p.n}">+</button></div></div><div class="lt">${fmt(price(p,l.z)*l.q)}</div></div>`}).join(''):'<div class="empty"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8zM9 8a3 3 0 016 0"/></svg><b>Your cart is empty</b>Add a scent from the collection and it will wait for you here.</div>';
+  save()}
+function openCart(o){dr.inert=!o;dr.classList.toggle('open',o);scrim.classList.toggle('on',o);dr.setAttribute('aria-hidden',!o);if(o)setTimeout(()=>$('#close').focus({preventScroll:true}),350)}
+function setFam(f){document.querySelectorAll('.pill').forEach(b=>{const on=b.dataset.v===f;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});document.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide',f!=='All'&&c.dataset.f!==f))}
+document.addEventListener('click',e=>{
+ if(e.target===scrim)return openCart(false);
+ const b=e.target.closest('button');if(!b)return;const a=b.dataset.act,i=+b.dataset.i,k=+b.dataset.k;
+ if(a==='fam')setFam(b.dataset.v);
+ else if(a==='sz'){SZ[i]=+b.dataset.v;b.parentNode.querySelectorAll('button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-pressed',on)});$('#pr'+i).textContent=fmt(price(PRODUCTS[i],SZ[i]))}
+ else if(a==='add'){const z=SZ[i],l=cart.find(l=>l.i===i&&l.z===z);l?l.q++:cart.push({i,z,q:1});draw();toast(PRODUCTS[i].n+' · '+z+' ml added to your cart');
+   b.classList.add('done');b.lastChild.textContent='Added';clearTimeout(b.t);b.t=setTimeout(()=>{b.classList.remove('done');b.lastChild.textContent='Add'},1300);
+   const cb=$('#cartBtn');cb.animate([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:380,easing:'cubic-bezier(.34,1.56,.64,1)'})}
+ else if(a==='inc'){cart[k].q++;draw()}
+ else if(a==='dec'){cart[k].q--;if(cart[k].q<1)cart.splice(k,1);draw()}
+ else if(b.id==='cartBtn')openCart(true);
+ else if(b.id==='close')openCart(false);
+ else if(b.id==='co')toast('Demo store: checkout is not connected.')});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&dr.classList.contains('open'))openCart(false)});
+draw();
+/* hero */
+let v=$('#v');const stage=$('#stage'),hero=$('#hero'),fly=$('#fly'),slot=$('#slot'),grid=$('#grid'),first=document.querySelector('.card.first');
+const VSRC=(Math.min(innerWidth,innerHeight)<=760||matchMedia('(pointer:coarse)').matches)?'assets/hero-m.mp4':'assets/hero.mp4';
+/* the film streams first (instant first frame), then the whole file is fetched in the background and an in-memory copy takes over invisibly, so no scrub ever waits on the network. Servers without range support (python -m http.server) can't seek a stream, so there the download is mandatory and the loader waits for it. */
+const FPS=VSRC.indexOf('hero-m')>-1?30:60;let needForce=false,swapped=false,ldBar=null;
+{const L=$('#load');if(L){ldBar=document.createElement('i');ldBar.style.cssText='position:absolute;left:50%;top:calc(50% + 34px);width:120px;height:1px;margin-left:-60px;background:linear-gradient(90deg,var(--gold),var(--gold)) 0 0/0% 100% no-repeat,rgba(255,255,255,.14);transition:background-size .25s linear';L.appendChild(ldBar)}}
+const eng=new ScrubEngine(v,{fps:FPS,maxRate:matchMedia('(pointer:coarse)').matches?2.5:4,onSwap:nv=>{v=nv;swapped=true;lastOP='';dirty=true;measure();hideLoad()}});
+v.src=ScrubEngine.src(VSRC);v.load();
+function startUpgrade(){if(startUpgrade.on)return;startUpgrade.on=1;
+  const s=v.seekable;if(!(s&&s.length&&s.end(s.length-1)>=(v.duration||0)-1))needForce=true;
+  ScrubEngine.loadFull(VSRC,f=>{if(ldBar)ldBar.style.backgroundSize=(f*100).toFixed(1)+'% 100%'}).then(u=>eng.swapTo(u,needForce)).catch(()=>{if(needForce){v.src=VSRC;v.load()}hideLoad()})}
+v.addEventListener('loadedmetadata',()=>setTimeout(startUpgrade,300));setTimeout(startUpgrade,2500);
+const capEls=CFG.caps.map(c=>{const d=document.createElement('div');d.className='cap'+(c.sm?' sm':'')+(c.R?' R':'');d.style.cssText=c.pos+';--c:'+c.col;d.innerHTML=`<h2>${c.h}</h2>${c.p?`<p>${c.p}</p>`:''}<i></i>`;stage.appendChild(d);return d});
+const hideLoad=()=>{const L=$('#load');if(!L||L.dataset.gone)return;L.dataset.gone=1;L.style.opacity=0;setTimeout(()=>L.remove(),900)};
+v.addEventListener('loadeddata',()=>{if(!needForce)hideLoad()});setTimeout(()=>{if(!needForce)hideLoad()},7000);setTimeout(hideLoad,60000);
+addEventListener('touchstart',()=>{if(eng.driving())return;v.play().then(()=>{if(!eng.playing())v.pause()}).catch(()=>{})},{once:true,passive:true});
+
+let cur=0,lastCur=-1,lastY=-1,dirty=true,D=1,HT=0,A={l:0,t:0,w:0,h:0},DW=1,SW=1,PORT=false,lastOP='';
+/* portrait screens: nudge the cropped video sideways so the bottle sits exactly on the screen's centre line (landscape/desktop untouched) */
+function shiftAt(t){if(!PORT)return 0;const K=CFG.centre,B=CFG.bottle,end=B.x+B.w/2,L=K[K.length-1];let c;
+  if(t<=K[0][0])c=K[0][1];
+  else if(t>=L[0])c=L[1]+(end-L[1])*clamp((t-L[0])/(CFG.centreTo-L[0]));
+  else for(let i=1;i<K.length;i++)if(t<=K[i][0]){const a=K[i-1],b=K[i];c=a[1]+(b[1]-a[1])*(t-a[0])/(b[0]-a[0]);break}
+  const m=(DW-SW)/2;return Math.max(-m,Math.min(m,(.5-c)*DW))}
+function measure(){const W=stage.clientWidth,H=stage.clientHeight,vw=v.videoWidth||1280,vh=v.videoHeight||720,s=Math.max(W/vw,H/vh),dw=vw*s,dh=vh*s,B=CFG.bottle;DW=dw;SW=W;PORT=H>W;HT=hero.offsetTop;D=hero.offsetHeight-stage.offsetHeight;A={l:(W-dw)/2+shiftAt(1e4)+B.x*dw,t:(H-dh)/2+B.y*dh,w:B.w*dw,h:B.h*dh};dirty=true}
+addEventListener('resize',measure);v.addEventListener('loadedmetadata',measure);addEventListener('load',measure);measure();
+/* playhead = critically damped spring (continuous velocity, no overshoot, same feel on 60/90/120/144 Hz); the engine then PLAYS the film for steady forward scrolling and SEEKS for slow moves, reverse and jumps */
+/* AUTO-SCROLL: the film plays natively in real time (smoothest possible), and the page scrolls to follow it; after the film ends the same pace carries the bottle down into the shop. Any wheel / touch / key / scrollbar drag takes over instantly. */
+const AUTO_DELAY=1000,AUTO_RATE=2;let autoOn=false,autoPend=false,autoTail=false,autoY=0,autoSet=0,took=false,loadedAt=0;
+let locked=true;document.documentElement.classList.add('lock');
+const cue=$('#scrollCue');let cueOn=false,cueBase=0;
+const unlock=(showCue)=>{locked=false;document.documentElement.classList.remove('lock');
+  if(showCue){cueBase=scrollY;setTimeout(()=>{cueOn=true;cue.classList.add('on')},600)}};   // "SCROLL" appears only once the hero film is over
+addEventListener('scroll',()=>{if(cueOn&&scrollY>cueBase+innerHeight*.2){cueOn=false;cue.classList.remove('on')}},{passive:true});
+const gateMQ=matchMedia('(orientation: portrait) and (pointer: coarse) and (max-width: 820px)');   // phone held upright
+const onGate=()=>{if(gateMQ.matches&&locked){stopAuto();scrollTo(0,0);loadedAt=0;dirty=true}};   // hero not finished: park it at the start until the phone is horizontal
+(gateMQ.addEventListener?gateMQ.addEventListener('change',onGate):gateMQ.addListener(onGate));   // the film runs by itself; the page unlocks once the bottle has landed in the shop
+const safety=setInterval(()=>{if(!locked){clearInterval(safety);return}if(loadedAt&&performance.now()-loadedAt>40000&&!autoOn&&!autoPend)unlock()},2000);   // safety net: never leave a visitor locked if playback cannot start
+const setY=y=>{scrollTo(0,y);autoSet=scrollY};
+function stopAuto(){if(!autoOn&&!autoPend)return;autoOn=autoPend=autoTail=false;eng.stopDrive();sd.v=0;dirty=true}
+const inDrawer=e=>!!(e.target&&e.target.closest&&e.target.closest('#drawer'));
+addEventListener('wheel',e=>{if(locked&&!inDrawer(e)&&e.cancelable)e.preventDefault()},{passive:false});
+addEventListener('touchmove',e=>{if(locked&&!inDrawer(e)&&e.cancelable)e.preventDefault()},{passive:false});
+addEventListener('keydown',e=>{if(!locked||!['ArrowUp','ArrowDown','PageUp','PageDown','Home','End',' '].includes(e.key))return;
+  if(/^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test((e.target&&e.target.tagName)||'')||inDrawer(e))return;e.preventDefault()});
+addEventListener('click',e=>{if(locked&&e.target.closest&&e.target.closest('a[href^="#"]'))e.preventDefault()});
+function startAuto(){if(took||autoOn||autoPend||!v.duration)return;if(scrollY>HT+D*.03)return;autoPend=true;if(Math.abs(v.currentTime)>.04){try{v.currentTime=0}catch(e){}}}
+function autoStep(dt){
+  const dur=v.duration||49.4,end=dur-.05,perPx=D*.88/end;
+  if(autoPend){ if(!v.seeking&&v.readyState>=2){autoPend=false;autoOn=eng.drive(AUTO_RATE,()=>{autoOn=false;took=true;unlock()});if(!autoOn)unlock()} return}
+  if(!autoOn)return;
+  if(!autoTail){
+    const T=Math.min(v.currentTime,end);cur=T;sd.v=0;
+    setY(HT+T*perPx);autoY=HT+T*perPx;
+    if(v.currentTime>=end-.03||v.ended){autoTail=true;eng.stopDrive()}
+  }else{
+    autoY+=perPx*AUTO_RATE*dt;                                       // same pace as the film phase
+    if(autoY>=HT+D){setY(HT+D);autoOn=autoTail=false;unlock(true);return}
+    cur=end;setY(autoY);
+  }
+}
+setInterval(()=>{if(gateMQ.matches){loadedAt=0;return}if(!autoOn&&!autoPend&&!took&&!document.getElementById('load')){if(!loadedAt)loadedAt=performance.now();if(performance.now()-loadedAt>AUTO_DELAY&&(swapped||performance.now()>20000))startAuto()}},250);
+let tPrev=0;const sd={v:0},ST=matchMedia('(pointer:coarse)').matches?.15:.2;
+function frame(now){
+  requestAnimationFrame(frame);
+  const dt=tPrev?clamp((now-tPrev)/1000,.001,.1):1/60;tPrev=now;
+  if(autoOn||autoPend)autoStep(dt);
+  const y=scrollY,dur=v.duration||49.4,p=clamp((y-HT)/D),tgt=clamp(p/.88)*(dur-.05);
+  if(autoOn){}else if(cur!==tgt||sd.v){cur=ScrubEngine.smoothDamp(cur,tgt,sd,ST,dt);if(Math.abs(tgt-cur)<.0005&&Math.abs(sd.v)<.005){cur=tgt;sd.v=0}}
+  eng.update(cur,dt);
+  if(y===lastY&&cur===lastCur&&!dirty)return;
+  lastY=y;lastCur=cur;dirty=false;
+  const sx=shiftAt(cur),op=sx&&DW>SW?(50-sx/(DW-SW)*100).toFixed(3)+'% 50%':'';if(op!==lastOP){v.style.objectPosition=op;lastOP=op}
+  v.style.opacity=p<.9?1:clamp(1-(p-.9)/.04);
+  CFG.caps.forEach((c,i)=>{const el=capEls[i];if(cur<c.a-.05||cur>c.b+.05){if(el.style.opacity!=='0')el.style.opacity=0;return}
+    const u=clamp((cur-c.a)/(c.b-c.a)),k=.28,I=clamp(u/k),O=clamp((1-u)/k),o=Math.min(I,O),sd=u<.5?Math.pow(1-I,3):-Math.pow(1-O,3),bl=(1-o)*(c.fx==='mist'?18:8);
+    el.style.opacity=o;el.style.transform=c.fx==='slideR'?`translateX(${sd*70}px)`:c.fx==='mist'?`scale(${1+(1-o)*.05})`:`translateY(${sd*26}px)`;
+    if(c.fx==='spread')el.firstChild.style.letterSpacing=(.04+(1-o)*.45)+'em'});
+  if(p<.84){fly.style.opacity=0;slot.style.opacity=0;first.style.setProperty('--g',0);grid.classList.remove('landed');return}
+  const r=slot.getBoundingClientRect(),cy=r.top+r.height/2,ih=innerHeight;
+  let t=clamp((ih*1.1-cy)/(ih*.6));t=t*t*(3-2*t);const on=p>=.9;
+  fly.style.opacity=on&&t<1?1:0;
+  if(on&&t<1){fly.style.left=A.l+(r.left-A.l)*t+'px';fly.style.top=A.t+(r.top-A.t)*t+'px';fly.style.width=A.w+(r.width-A.w)*t+'px';fly.style.height=A.h+(r.height-A.h)*t+'px';fly.style.background=`rgba(0,0,0,${clamp(1-t*7)})`}
+  slot.style.opacity=on&&t>=1?1:0;
+  first.style.setProperty('--g',clamp(t*1.4-.2));
+  grid.classList.toggle('landed',on&&t>=1)}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
