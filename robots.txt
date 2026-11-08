@@ -1,0 +1,7 @@
+# Nexoré — robots.txt
+User-agent: *
+Allow: /
+Disallow: /source/
+
+# Replace nexo-re.github.io with your real domain (see HOSTING-CHECKLIST.md)
+Sitemap: https://nexo-re.github.io/sitemap.xml

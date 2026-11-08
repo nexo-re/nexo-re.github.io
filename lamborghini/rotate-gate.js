@@ -1,0 +1,1 @@
+(function(){"use strict";var e=window.matchMedia("(orientation: portrait) and (pointer: coarse) and (max-width: 820px)");window.ROTATE_GATE={blocked:function(){return e.matches},onChange:function(n){e.addEventListener?e.addEventListener("change",n):e.addListener&&e.addListener(n)}}})();
