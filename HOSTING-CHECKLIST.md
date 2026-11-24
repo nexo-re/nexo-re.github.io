@@ -21,5 +21,5 @@ Until then nothing is sent and no cookies are set. If you expect visitors from t
 
 ## What was deliberately left out
 - **Map + directions / street address:** Nexoré has no public address in the files, so none was invented. If you have a studio or office, send the address and add it to `contact.html` and to the schema in `index.html`.
-- **Demo sites (Véyra, Lamborghini, Élvaré, Vanta)** are set to `noindex` so search engines show Nexoré's own pages instead of fictional shops. Remove the `<meta name="robots">` line in each demo's `index.html` to change this.
+- **Demo sites (Véyra, Lamborghini, Élvaré, Vanta, Auréniva Interiors, Loopelle)** are indexable and listed in `sitemap.xml`. If you would rather search engines show only Nexoré's own pages instead of fictional shops, add `<meta name="robots" content="noindex">` to each demo's `index.html` and remove them from the sitemap.
 - Don't upload the `source/` folder (raw working files).

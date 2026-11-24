@@ -79,8 +79,12 @@ Each ring card now shows its site being scrolled: `assets/img/previews/strip-<si
 
 ## Card previews = real films of each site scrolling
 Each ring card plays `assets/video/previews/<site>.mp4` (the real demo scrolled top to bottom and back, muted, looping) over the still `assets/img/previews/poster-<site>.webp`.
-Lamborghini + Véyra use a 16:9 frame (960×540); Élvaré + Vanta use a 9:16 frame (540×960 / 450×800). Set per site in `CONFIG.sites[]` with `vid` and `frame` ('16:9' or '9:16'); the film's shape must match.
+Lamborghini + Véyra + Auréniva Interiors use a 16:9 frame (960×540); Élvaré + Vanta + Loopelle use a 9:16 frame (540×960 / 450×800). Set per site in `CONFIG.sites[]` with `vid` and `frame` ('16:9' or '9:16'); the film's shape must match.
 A film plays only while its card faces the viewer (`PV` in js/app.js); reduced-motion, Save-Data and 2G visitors see the still. CSS: "Card previews" block in css/styles.css.
 To redo one: record the page scrolling, then
 ffmpeg -framerate 20 -i frames/%04d.jpg -vf "scale=960:540,split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1:a=0,format=yuv420p" -c:v libx264 -preset slow -crf 29 -movflags +faststart -an site.mp4
 (the reverse/concat makes it loop back and forth). The old `strip-*.webp` images are no longer used by the cards and can be deleted.
+
+## Auréniva Interiors + Loopelle
+- Auréniva preloads its 240 film frames (`aureniva/film/f_001…f_240.webp` + `last.webp`, about 4.8 MB) through `extra` in its `preload`. Loopelle preloads `model.glb`, `products.csv`, its hero picture and the three.js files from jsDelivr (third-party URLs time out after 8 s, so a slow CDN never blocks the loader).
+- Both open in the same-origin iframe like the other demos. Auréniva’s `index.html` uses relative paths (`./assets/…`) so it works under `/aureniva/` on GitHub Pages.

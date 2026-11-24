@@ -1,0 +1,18 @@
+/* simple content pages (privacy, 404) - uses the same tokens as the shop */
+body.page{min-height:100vh;display:flex;flex-direction:column;background:#0F0F0F;color:var(--tx);font-family:var(--san)}
+.pg-h{border-bottom:1px solid var(--hr);background:rgba(15,15,15,.88);padding-top:env(safe-area-inset-top,0px)}
+.pg-hi{width:min(92vw,860px);margin:0 auto;height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.pg-hi img{height:26px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.94}
+.pg-back{font:600 13.5px var(--san);color:var(--rose);text-decoration:none;border:1px solid var(--rb);border-radius:99px;padding:10px 16px;white-space:nowrap}
+.pg-back:hover{background:rgba(var(--rose-rgb,244,194,194),.1)}
+.pg-m{flex:1;width:min(92vw,760px);margin:0 auto;padding:44px 0 64px}
+.pg-m h1{font:500 clamp(34px,7vw,52px)/1.05 var(--ser);margin:0 0 8px}
+.pg-m h2{font:500 26px var(--ser);margin:34px 0 8px;color:var(--rose)}
+.pg-m p,.pg-m li{font-size:15.5px;line-height:1.7;color:var(--tx2)}
+.pg-m ul{padding-left:20px;margin:8px 0}
+.pg-m a{color:var(--rose);text-underline-offset:3px}
+.pg-d{color:var(--mut)!important;font-size:13px!important}
+.pg-f{border-top:1px solid var(--hr);padding:22px 0 calc(22px + env(safe-area-inset-bottom,0px));text-align:center;font-size:12.5px;color:var(--mut)}
+.pg-c{text-align:center;padding-top:12vh}
+.pg-c .big{font:500 clamp(84px,24vw,170px)/1 var(--ser);color:var(--rose);margin:0}
+.pg-c .b{display:inline-flex;width:auto;padding:0 28px;margin-top:18px}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loopelle | Handmade Crochet Plushies and Amigurumi</title>
+<meta name="description" content="Shop Loopelle's handmade crochet plushies: bunnies, kittens, froggies and more, stitched one loop at a time. Every plushie comes with a free e-adoption certificate.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://nexo-re.github.io/loopelle/">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'sha256-UK9O+rbB3KhDsGQrE55qyNAJCpV7WHc47zV2U5f4bE4='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' blob: data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#0F0F0F">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Loopelle">
+<meta property="og:title" content="Loopelle | Handmade Crochet Plushies and Amigurumi">
+<meta property="og:description" content="Handmade crochet plushies, made one stitch at a time. Every plushie comes with a free e-adoption certificate.">
+<meta property="og:url" content="https://nexo-re.github.io/loopelle/">
+<meta property="og:image" content="https://nexo-re.github.io/loopelle/assets/brand/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Loopelle logo next to a handmade pink crochet cow plushie">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loopelle | Handmade Crochet Plushies and Amigurumi">
+<meta name="twitter:description" content="Handmade crochet plushies, made one stitch at a time.">
+<meta name="twitter:image" content="https://nexo-re.github.io/loopelle/assets/brand/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://nexo-re.github.io/loopelle/#org","name":"Loopelle","url":"https://nexo-re.github.io/loopelle/","logo":"https://nexo-re.github.io/loopelle/assets/icons/icon-512.png","email":"nexoree@gmail.com"},{"@type":"WebSite","@id":"https://nexo-re.github.io/loopelle/#site","url":"https://nexo-re.github.io/loopelle/","name":"Loopelle","publisher":{"@id":"https://nexo-re.github.io/loopelle/#org"}}]}</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Cormorant+Garamond:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/common.css">
+<link rel="stylesheet" href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/extras.css">
+<link rel="stylesheet" href="assets/css/forms.css">
+</head>
+<body class="home">
+<h1 class="sr-only">Loopelle - handmade crochet plushies</h1>
+<p class="sr-only">Loopelle is a handmade crochet plushie shop. This demo site by Nexoré opens with a 3D plushie that is stitched row by row, then turns and glides into the shop. Visitors can browse eight amigurumi friends, filter by category, search, add to a bag, watch each plushie being crocheted, and receive a free e-adoption certificate with their order. Orders and questions are sent by email, so there is no payment page to build.</p>
+<noscript><p style="position:fixed;z-index:9999;inset:auto 0 0 0;margin:0;padding:14px 18px;background:#F4C2C2;color:#0F0F0F;font:600 14px system-ui,sans-serif;text-align:center">This site needs JavaScript turned on.</p></noscript>
+<canvas id="bg"></canvas>
+<svg id="deco" aria-hidden="true"></svg>
+<div class="stage"><canvas id="c" aria-hidden="true"></canvas></div>
+<div id="hint" role="button" tabindex="0" aria-label="Scroll to begin"><span class="tx" id="hintT">scroll</span><i class="ch"></i><i class="ch"></i></div>
+<button id="skip" type="button">Skip to shop <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<div id="cream"></div>
+<div id="shop"><div id="shopIn"><div class="sh"><div class="eb">Collection</div><h2>Our picks</h2><p></p></div><nav id="cats" aria-label="Categories"></nav><div id="grid"></div><div id="nores" hidden>No cuties found. Try another word.</div>
+<div class="ft"></div></div></div>
+<header id="hd"><div class="hi"><a class="br" data-go="shop" role="link" tabindex="0" aria-label="Home"></a><nav class="dn" aria-label="Main"><a data-go="shop" role="link" tabindex="0">Collection</a><a data-go="anya" role="link" tabindex="0">Ask us</a><a href="#contact" data-open="ctDr">Contact</a>
+
+<a href="#" data-ig target="_blank" rel="noopener">Instagram</a></nav>
+<div class="ha"><button class="sq" id="sBtn" type="button" aria-label="Search products"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><button class="cb" id="cartBtn" type="button" aria-label="View shopping bag"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Bag</span><span class="cc" id="cc">0</span></button><button class="mb" id="mb" type="button" aria-label="Open menu" aria-controls="menu"><i></i><i></i><i></i></button></div></div></header>
+<div id="sbar"><div class="si"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="sIn" type="search" placeholder="Search..." aria-label="Search products" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false"><button type="button" id="sX" aria-label="Close search">&times;</button></div></div>
+<div class="bk" id="bk"></div>
+<aside class="dr" id="menu" aria-label="Menu" aria-hidden="true"><div class="mn">
+<div class="mn-top"><a class="br" data-go="shop" role="link" tabindex="0" aria-label="Home"></a><button class="x" type="button" data-close aria-label="Close menu">&times;</button></div>
+<p class="mn-eb">Explore</p>
+<nav class="mn-links" aria-label="Menu"><a class="mn-l" style="--d:0" data-go="shop" role="link" tabindex="0"><i>01</i><span><b>Collection</b><small>Browse every handmade piece</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="mn-l" style="--d:1" data-go="anya" role="link" tabindex="0"><i>02</i><span><b>Ask us</b><small>Our little shop helper</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="mn-l" style="--d:2" href="#contact" data-open="ctDr"><i>03</i><span><b>Contact</b><small>Questions or custom orders</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</nav>
+<div class="mn-card"><div class="mn-box"><p>Made by hand, one stitch at a time.</p>
+<div class="mn-act"><a class="fill" href="#" data-ig target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Instagram</a><a href="https://wa.me/" data-wa="" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg> WhatsApp</a></div></div>
+<div class="mn-foot"><span>&copy; <span data-year></span> <span data-name></span></span></div></div>
+</div></aside>
+<aside class="dr" id="cart" aria-label="Shopping bag" aria-hidden="true"><div class="dh"><h3>Your Bag</h3><button class="x" type="button" data-close aria-label="Close bag">&times;</button></div><div class="ci2" id="items"></div>
+<div class="cf" id="cf" style="display:none"><div class="tr"><span>Total</span><span id="tot">&#8377;0</span></div><p class="nt" id="ship"></p>
+<button class="b p" type="button" id="co">Checkout</button>
+<button class="b w" type="button" id="wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg><span>Send Bag to WhatsApp</span></button></div></aside>
+<aside class="dr" id="coDr" aria-label="Checkout" aria-hidden="true"><div class="dh"><h3>Checkout</h3><button class="x" type="button" data-close aria-label="Close checkout">&times;</button></div>
+<div class="fm-wrap">
+<form class="fm" id="coForm" novalidate>
+<div class="fs" id="coSum" aria-live="polite"></div>
+<p class="fh">Your details</p>
+<label class="fg"><span>Full name</span><input class="fi" name="name" type="text" autocomplete="name" maxlength="80" required><small class="fe" data-err="name" role="alert"></small></label>
+<label class="fg"><span>Email</span><input class="fi" name="email" type="email" autocomplete="email" maxlength="160" inputmode="email" required><small class="fe" data-err="email" role="alert"></small></label>
+<label class="fg"><span>Phone <em>(optional)</em></span><input class="fi" name="phone" type="tel" autocomplete="tel" maxlength="30" inputmode="tel"><small class="fe" data-err="phone" role="alert"></small></label>
+<p class="fh">Delivery address</p>
+<label class="fg"><span>Street address</span><input class="fi" name="addr1" type="text" autocomplete="address-line1" maxlength="120" required><small class="fe" data-err="addr1" role="alert"></small></label>
+<label class="fg"><span>Apartment, suite, etc. <em>(optional)</em></span><input class="fi" name="addr2" type="text" autocomplete="address-line2" maxlength="120"><small class="fe" data-err="addr2" role="alert"></small></label>
+<div class="fr"><label class="fg"><span>City</span><input class="fi" name="city" type="text" autocomplete="address-level2" maxlength="80" required><small class="fe" data-err="city" role="alert"></small></label><label class="fg"><span>State / region</span><input class="fi" name="state" type="text" autocomplete="address-level1" maxlength="80" required><small class="fe" data-err="state" role="alert"></small></label></div>
+<div class="fr"><label class="fg"><span>Postal code</span><input class="fi" name="zip" type="text" autocomplete="postal-code" maxlength="14" required><small class="fe" data-err="zip" role="alert"></small></label><label class="fg"><span>Country</span><input class="fi" name="country" type="text" autocomplete="country-name" maxlength="80" required><small class="fe" data-err="country" role="alert"></small></label></div>
+<label class="fg"><span>Order notes <em>(optional)</em></span><textarea class="fi" name="notes" rows="3" maxlength="600" placeholder="Gift note, delivery tips..."></textarea><small class="fe" data-err="notes" role="alert"></small></label>
+<div class="fk-w"><label class="fk"><input type="checkbox" name="agree"><span>I agree to my details being emailed to the shop so it can process my order. <a href="privacy.html" target="_blank" rel="noopener">Privacy</a></span></label><small class="fe" data-err="agree" role="alert"></small></div>
+<div class="fm-foot"><button class="b p" type="submit" id="coGo">Email my order</button><p class="nt">No payment is taken on this website. We confirm shipping and payment by email.</p></div>
+</form>
+<div class="fd" id="coDone" hidden></div>
+</div></aside>
+<aside class="dr" id="ctDr" aria-label="Contact" aria-hidden="true"><div class="dh"><h3>Contact</h3><button class="x" type="button" data-close aria-label="Close contact form">&times;</button></div>
+<div class="fm-wrap">
+<form class="fm" id="ctForm" novalidate>
+<p class="fm-lead">Questions, custom orders or just a hello - send us a note.</p>
+<label class="fg"><span>Your name</span><input class="fi" name="name" type="text" autocomplete="name" maxlength="80" required><small class="fe" data-err="name" role="alert"></small></label>
+<label class="fg"><span>Email</span><input class="fi" name="email" type="email" autocomplete="email" maxlength="160" inputmode="email" required><small class="fe" data-err="email" role="alert"></small></label>
+<label class="fg"><span>Phone <em>(optional)</em></span><input class="fi" name="phone" type="tel" autocomplete="tel" maxlength="30" inputmode="tel"><small class="fe" data-err="phone" role="alert"></small></label>
+<label class="fg"><span>Topic</span><select class="fi" name="topic"><option>Question about a product</option><option>Custom order</option><option>Help with an order</option><option>Something else</option></select></label>
+<label class="fg"><span>Message</span><textarea class="fi" name="message" rows="5" maxlength="1200" placeholder="How can we help?"></textarea><small class="fe" data-err="message" role="alert"></small></label>
+<div class="fk-w"><label class="fk"><input type="checkbox" name="agree"><span>I agree to my message and details being emailed to the shop so it can reply. <a href="privacy.html" target="_blank" rel="noopener">Privacy</a></span></label><small class="fe" data-err="agree" role="alert"></small></div>
+<div class="fm-foot"><button class="b p" type="submit">Email us</button></div>
+</form>
+<div class="fd" id="ctDone" hidden></div>
+</div></aside>
+<div id="pd" aria-hidden="true" role="dialog" aria-label="Product details"><div class="pdi" id="pdi"></div></div>
+<div id="tg" role="status" aria-live="polite"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="bot"><img alt="Shop helper"></div><div id="tip">Ask me anything</div>
+<div id="chat" role="dialog" aria-label="Chat"><div id="ch-h"><span>Helper</span><button id="ch-x" type="button" aria-label="Close chat">&times;</button></div><div id="ch-m" aria-live="polite"></div><div id="ch-c"></div><div id="ch-i"><input id="ch-in" placeholder="Ask us..." autocomplete="off" aria-label="Message"><button id="ch-s" type="button">Send</button></div></div>
+<script src="site-config.js"></script>
+<script src="assets/js/template.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/extras.js"></script>
+<script src="assets/js/forms.js"></script>
+</body>
+</html>

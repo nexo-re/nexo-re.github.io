@@ -1,0 +1,49 @@
+/* checkout + contact drawers (same look as the bag drawer) */
+#coDr,#ctDr{width:min(460px,94vw)}
+.fm-wrap{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:18px 2px 6px;margin:0 -2px}
+.fm{display:flex;flex-direction:column;gap:14px;min-height:100%}
+.fm-lead{margin:0;font-size:14px;line-height:1.55;color:var(--tx2)}
+.fs{position:relative;border:1px solid var(--rb);border-radius:18px;padding:14px 16px;background:rgba(var(--rose-rgb),.05)}
+.fs::before{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(var(--rose-rgb),.14);border-radius:14px;pointer-events:none}
+.fs ul{position:relative;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.fs li{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--tx)}
+.fs li i{font-style:normal;color:var(--mut)}
+.fs li b{font-weight:600;white-space:nowrap}
+.fs-t{position:relative;display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--hr);font:600 22px var(--ser)}
+.fs p{position:relative;margin:10px 0 0;font-size:12.5px;line-height:1.5;color:var(--mut)}
+.fh{margin:6px 0 -2px;font:700 11px var(--san);letter-spacing:.2em;text-transform:uppercase;color:var(--rose);opacity:.85}
+.fg{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fg>span{font-size:12.5px;font-weight:600;color:var(--tx2)}
+.fg>span em{font-style:normal;font-weight:400;color:var(--mut)}
+.fi{width:100%;min-width:0;background:#0F0F0F;border:1px solid var(--hr);border-radius:14px;color:var(--tx);padding:12px 14px;font:500 16px var(--san);outline:0;transition:border-color .2s,box-shadow .2s}
+.fi::placeholder{color:#6f6f6f}
+.fi:hover{border-color:var(--rb)}
+.fi:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(var(--rose-rgb),.16)}
+.fi[aria-invalid="true"]{border-color:#ff9aa2}
+textarea.fi{min-height:120px;resize:vertical;line-height:1.5}
+select.fi{appearance:none;-webkit-appearance:none;padding-right:38px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23F4C2C2' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.fe{min-height:0;font-size:12.5px;line-height:1.4;color:#ff9aa2}
+.fe:empty{display:none}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fk{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:var(--tx2);cursor:pointer}
+.fk input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:var(--rose);cursor:pointer}
+.fk a{color:var(--rose);text-underline-offset:3px}
+.fk-w{display:flex;flex-direction:column;gap:6px}
+.fm-foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--hr);display:flex;flex-direction:column;gap:10px}
+.fm-foot .b:disabled{opacity:.45;cursor:not-allowed}
+
+/* "email is ready" panel */
+.fd{display:flex;flex-direction:column;gap:12px;text-align:center;align-items:stretch}
+.fd-ic{width:56px;height:56px;margin:6px auto 0;border-radius:50%;border:1px solid var(--rb);background:rgba(var(--rose-rgb),.08);display:grid;place-items:center;color:var(--rose)}
+.fd h4{margin:4px 0 0;font:500 30px/1.1 var(--ser)}
+.fd-p{margin:0;font-size:14px;line-height:1.55;color:var(--tx2)}
+.fd-s{font-size:12.5px;color:var(--mut)}
+.fd-s b{color:var(--tx2);overflow-wrap:anywhere}
+.fd-act{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.fd-end{margin-top:10px;padding-top:16px;border-top:1px solid var(--hr)}
+.fd-pv{text-align:left;border:1px solid var(--hr);border-radius:14px;padding:10px 12px;background:#0F0F0F}
+.fd-pv summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--tx2)}
+.fd-pv textarea{margin-top:10px;width:100%;background:transparent;border:0;color:var(--tx2);font:400 12.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;resize:vertical;outline:0}
+
+@media(max-width:400px){.fr{grid-template-columns:1fr}}
+@media(max-height:560px){.fd-ic{display:none}}
